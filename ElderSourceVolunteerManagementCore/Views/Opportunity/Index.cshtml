@@ -1,0 +1,33 @@
+﻿@model Opportunity
+<body>
+    <a asp-controller="Home" asp-action="Index">Home</a>
+    <table>
+        <tr>
+            <td colspan="2" style="text-align:center"><h4>Opportunity Form</h4></td>
+        </tr>
+        <tr>
+            <td><label asp-for="OpportunityName">Opportuntiy Name:</label></td>
+            <td><input asp-for="OpportunityName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="OpportunityDate">Opportunity Date:</label></td>
+            <td><input asp-for="OpportunityDate" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="OpportunityElderSource">Opportunity ElderSource?</label></td>
+            <td><input asp-for="OpportunityElderSource" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="OpportunityElderSourceInstitute">Opportuntiy ElderSource Institute?</label></td>
+            <td><input asp-for="OpportunityElderSourceInstitute" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="OpportunityInterest">Opportunity Interest:</label></td>
+            <td><input asp-for="OpportunityInterest" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="OpportunityDescription">Opportunity Description:</label></td>
+            <td><input asp-for="OpportunityDescription" /></td>
+        </tr>
+    </table>
+</body>
