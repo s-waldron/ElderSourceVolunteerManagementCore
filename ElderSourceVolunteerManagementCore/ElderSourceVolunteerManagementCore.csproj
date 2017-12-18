@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <UserSecretsId>9efba843-0fb4-4464-a487-7a7c4649863e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +12,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.4" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,8 @@
 ﻿@model Volunteer
-<body>
-    
+
+@{
+    <h4>Volunteer</h4>
+    <div>
     <table class="table">
         <tr>
             <td colspan="2" style="text-align:center"><h4>Volunteer Form</h4></td>
@@ -38,58 +40,58 @@
             <td><label asp-for="DateOfBirth">Date of Birth:</label></td>
             <td><input asp-for="DateOfBirth" /></td>
         </tr>
-        
-            <tr>
-                <td><label>Availability:</label></td>
-                <td style="border:solid"><label>Sunday</label></td>
-                <td style="border:solid"><label>Monday</label></td>
-                <td style="border:solid"><label>Tuesday</label></td>
-                <td style="border:solid"><label>Wednesday</label></td>
-                <td style="border:solid"><label>Thursday</label></td>
-                <td style="border:solid"><label>Friday</label></td>
-                <td style="border:solid"><label>Saturday</label></td>
-            </tr>
-            <tr>
-                <td><label>All Day:</label></td>
-                <td style="border:solid"><input asp-for="AvailableSunday" /></td>
-                <td style="border:solid"><input asp-for="AvailableMonday" /></td>
-                <td style="border:solid"><input asp-for="AvailableTuesday" /></td>
-                <td style="border:solid"><input asp-for="AvailableWednesday" /></td>
-                <td style="border:solid"><input asp-for="AvailableThursday" /></td>
-                <td style="border:solid"><input asp-for="AvailableFriday" /></td>
-                <td style="border:solid"><input asp-for="AvailableSaturday" /></td>
-            </tr>
-            <tr>
-                <td><label>Morning:</label></td>
-                <td style="border:solid"><input asp-for="AvailableSundayMorning" /></td>
-                <td style="border:solid"><input asp-for="AvailableMondayMorning" /></td>
-                <td style="border:solid"><input asp-for="AvailableTuesdayMorning" /></td>
-                <td style="border:solid"><input asp-for="AvailableWednesdayMorning" /></td>
-                <td style="border:solid"><input asp-for="AvailableThursdayMorning" /></td>
-                <td style="border:solid"><input asp-for="AvailableFridayMorning" /></td>
-                <td style="border:solid"><input asp-for="AvailableSaturdayMorning" /></td>
-            </tr>
-            <tr>
-                <td><label>Afternoon:</label></td>
-                <td style="border:solid"><input asp-for="AvailableSundayAfternoon" /></td>
-                <td style="border:solid"><input asp-for="AvailableMondayAfternoon" /></td>
-                <td style="border:solid"><input asp-for="AvailableTuesdayAfternoon" /></td>
-                <td style="border:solid"><input asp-for="AvailableWednesdayAfternoon" /></td>
-                <td style="border:solid"><input asp-for="AvailableThursdayAfternoon" /></td>
-                <td style="border:solid"><input asp-for="AvailableFridayAfternoon" /></td>
-                <td style="border:solid"><input asp-for="AvailableSaturdayAfternoon" /></td>
-            </tr>
-            <tr>
-                <td><label>Evening:</label></td>
-                <td style="border:solid"><input asp-for="AvailableSundayEvening" /></td>
-                <td style="border:solid"><input asp-for="AvailableMondayEvening" /></td>
-                <td style="border:solid"><input asp-for="AvailableTuesdayEvening" /></td>
-                <td style="border:solid"><input asp-for="AvailableWednesdayEvening" /></td>
-                <td style="border:solid"><input asp-for="AvailableThursdayEvening" /></td>
-                <td style="border:solid"><input asp-for="AvailableFridayEvening" /></td>
-                <td style="border:solid"><input asp-for="AvailableSaturdayEvening" /></td>
-            </tr>
-        
+
+        <tr>
+            <td><label>Availability:</label></td>
+            <td style="border:solid;width:10%"><label>Sunday</label></td>
+            <td style="border:solid;width:15%"><label>Monday</label></td>
+            <td style="border:solid"><label>Tuesday</label></td>
+            <td style="border:solid"><label>Wednesday</label></td>
+            <td style="border:solid"><label>Thursday</label></td>
+            <td style="border:solid"><label>Friday</label></td>
+            <td style="border:solid"><label>Saturday</label></td>
+        </tr>
+        <tr>
+            <td><label>All Day:</label></td>
+            <td style="border:solid"><input asp-for="AvailableSunday" /></td>
+            <td style="border:solid"><input asp-for="AvailableMonday" /></td>
+            <td style="border:solid"><input asp-for="AvailableTuesday" /></td>
+            <td style="border:solid"><input asp-for="AvailableWednesday" /></td>
+            <td style="border:solid"><input asp-for="AvailableThursday" /></td>
+            <td style="border:solid"><input asp-for="AvailableFriday" /></td>
+            <td style="border:solid"><input asp-for="AvailableSaturday" /></td>
+        </tr>
+        <tr>
+            <td><label>Morning:</label></td>
+            <td style="border:solid"><input asp-for="AvailableSundayMorning" /></td>
+            <td style="border:solid"><input asp-for="AvailableMondayMorning" /></td>
+            <td style="border:solid"><input asp-for="AvailableTuesdayMorning" /></td>
+            <td style="border:solid"><input asp-for="AvailableWednesdayMorning" /></td>
+            <td style="border:solid"><input asp-for="AvailableThursdayMorning" /></td>
+            <td style="border:solid"><input asp-for="AvailableFridayMorning" /></td>
+            <td style="border:solid"><input asp-for="AvailableSaturdayMorning" /></td>
+        </tr>
+        <tr>
+            <td><label>Afternoon:</label></td>
+            <td style="border:solid"><input asp-for="AvailableSundayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="AvailableMondayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="AvailableTuesdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="AvailableWednesdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="AvailableThursdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="AvailableFridayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="AvailableSaturdayAfternoon" /></td>
+        </tr>
+        <tr>
+            <td><label>Evening:</label></td>
+            <td style="border:solid"><input asp-for="AvailableSundayEvening" /></td>
+            <td style="border:solid"><input asp-for="AvailableMondayEvening" /></td>
+            <td style="border:solid"><input asp-for="AvailableTuesdayEvening" /></td>
+            <td style="border:solid"><input asp-for="AvailableWednesdayEvening" /></td>
+            <td style="border:solid"><input asp-for="AvailableThursdayEvening" /></td>
+            <td style="border:solid"><input asp-for="AvailableFridayEvening" /></td>
+            <td style="border:solid"><input asp-for="AvailableSaturdayEvening" /></td>
+        </tr>
+
         <tr>
             <td colspan="2" style="text-align:center"><h4>Interest:</h4></td>
         </tr>
@@ -120,4 +122,5 @@
             <td col-span="2"><button type="submit">Submit</button></td>
         </tr>
     </table>
-</body>
+        </div>
+}
