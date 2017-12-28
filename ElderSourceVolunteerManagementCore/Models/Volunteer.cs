@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 {
     public class Volunteer
     {
+        [Key]
         public int VOLUNTEERID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

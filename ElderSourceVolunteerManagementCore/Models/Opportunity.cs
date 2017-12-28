@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 {
     public class Opportunity
     {
+        [Key]
         public int OPPORTUNITYID { get; set; }
         public string OpportunityName { get; set; }
         public DateTime OpportunityDate { get; set; }
