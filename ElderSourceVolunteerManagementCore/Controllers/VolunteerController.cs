@@ -11,8 +11,8 @@ namespace ElderSourceVolunteerManagementCore.Controllers
     public class VolunteerController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index() => View();
+        public IActionResult VolunteerForm() => View();
 
-        public IActionResult Employee() => View();
+        public IActionResult EmployeeForm() => View();
     }
 }

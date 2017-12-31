@@ -11,6 +11,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
     public class OpportunityController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index() => View();
+        public IActionResult AddOpportunityForm() => View();
     }// end OpportunityController class
 }
