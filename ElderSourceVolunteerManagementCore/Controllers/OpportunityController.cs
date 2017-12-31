@@ -18,8 +18,9 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             repository = repo;
         }
 
-        public ViewResult Index() => View(repository.Opportunity);
+        public ViewResult ListOpportunityEdit() => View(repository.Opportunity);
         // GET: /<controller>/
-        public IActionResult AddOpportunityForm() => View();
+        public IActionResult OpportunityForm(int OpportunityID) => View(repository.Opportunity.FirstOrDefault(
+            opp => opp.OPPORTUNITYID == OpportunityID));
     }// end OpportunityController class
 }

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Volunteer>
+<table>
+    @foreach (var vol in Model)
+    {
+        <tr>
+            <td>@vol.FirstName</td>
+            <td>@vol.LastName</td>
+            <td>@vol.Email</td>
+            <td>
+                <form asp-action="EmployeeForm" method="post">
+                    <input type="hidden" name="VolunteerID" value="@vol.VOLUNTEERID" />
+                    <button type="submit" asp-controller="Volunteer" asp-action="EmployeeForm">Edit</button>
+                </form>
+            </td>
+
+        </tr>
+    }
+</table>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Opportunity>
+<table>
+    @foreach (var opp in Model)
+    {
+        <tr>
+            <td>@opp.OpportunityName</td>
+            <td>@opp.OpportunityDescription</td>
+            <td>
+                <form asp-action="OpportunityForm" method="post">
+                    <input type="hidden" name="OpportunityID" value="@opp.OPPORTUNITYID" />
+                    <button type="submit" asp-controller="Opportunity" asp-action="OpportunityForm">Edit</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

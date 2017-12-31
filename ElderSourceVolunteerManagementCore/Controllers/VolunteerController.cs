@@ -18,10 +18,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             repository = repo;
         }
 
-        public ViewResult Index() => View(repository.Volunteer);
+        public ViewResult ListVolunteerEdit() => View(repository.Volunteer);
+
         // GET: /<controller>/
         public IActionResult VolunteerForm() => View();
 
-        public IActionResult EmployeeForm() => View();
+        public ViewResult EmployeeForm(int VolunteerID) => View(repository.Volunteer.FirstOrDefault
+            (vol => vol.VOLUNTEERID == VolunteerID));
     }
 }
