@@ -20,7 +20,25 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 
         public ViewResult ListOpportunityEdit() => View(repository.Opportunity);
         // GET: /<controller>/
-        public IActionResult OpportunityForm(int OpportunityID) => View(repository.Opportunity.FirstOrDefault(
+
+        public ViewResult Edit(int OpportunityID) => View("OpportunityForm",repository.Opportunity.FirstOrDefault(
             opp => opp.OPPORTUNITYID == OpportunityID));
+
+        public ViewResult Create() => View("OpportunityForm", new Opportunity());
+
+        [HttpPost]
+        public IActionResult OpportunityForm(Opportunity opportunity)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveOpportunity(opportunity);
+                return RedirectToActionPermanent("ListOpportunityEdit", "Opportunity");
+            }
+            else
+            {
+                //something went wrong
+                return View(opportunity);
+            }
+        }
     }// end OpportunityController class
 }

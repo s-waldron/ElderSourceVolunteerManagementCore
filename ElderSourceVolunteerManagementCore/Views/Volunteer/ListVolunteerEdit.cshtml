@@ -7,12 +7,17 @@
             <td>@vol.LastName</td>
             <td>@vol.Email</td>
             <td>
-                <form asp-action="EmployeeForm" method="post">
+                <form asp-action="Edit" method="post">
                     <input type="hidden" name="VolunteerID" value="@vol.VOLUNTEERID" />
-                    <button type="submit" asp-controller="Volunteer" asp-action="EmployeeForm">Edit</button>
+                    <button type="submit" asp-controller="Volunteer" asp-action="Edit">Edit</button>
                 </form>
             </td>
 
         </tr>
     }
+    <tr>
+        <td colspan="2">
+        <a class="btn btn-primary" asp-controller="Volunteer" asp-action="Create">Create New Volunteer</a>
+        </td>
+    </tr>
 </table>

@@ -6,11 +6,14 @@
             <td>@opp.OpportunityName</td>
             <td>@opp.OpportunityDescription</td>
             <td>
-                <form asp-action="OpportunityForm" method="post">
+                <form asp-action="Edit" method="post">
                     <input type="hidden" name="OpportunityID" value="@opp.OPPORTUNITYID" />
-                    <button type="submit" asp-controller="Opportunity" asp-action="OpportunityForm">Edit</button>
+                    <button type="submit" asp-controller="Opportunity" asp-action="Edit">Edit</button>
                 </form>
             </td>
         </tr>
     }
+    <tr>
+        <td colspan="2"><a class="btn btn-primary" asp-controller="Opportunity" asp-action="Create">Create New Opportunity</a></td>
+    </tr>
 </table>
