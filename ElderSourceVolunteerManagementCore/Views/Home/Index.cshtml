@@ -1,3 +1,11 @@
-﻿@{ 
+﻿@model IEnumerable<Opportunity>
 
-}
+<table>
+    @foreach(var opp in Model)
+    {
+        <tr>
+            <td><h5>@opp.OpportunityName</h5></td>
+            <td>@opp.OpportunityDescription</td>
+        </tr>
+    }
+</table>
