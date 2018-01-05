@@ -10,7 +10,7 @@ namespace ElderSourceVolunteerManagementCore.Models
         public EFOpportunityRepository(ApplicationDbContext ctx)
         {
             context = ctx;
-        }
+        }// end EFOpportunityRepository constructor
 
         public IEnumerable<Opportunity> Opportunity => context.Opportunities;
 
@@ -20,7 +20,7 @@ namespace ElderSourceVolunteerManagementCore.Models
             if(opportunity.OPPORTUNITYID == 0)
             {
                 context.Opportunities.Add(opportunity);
-            }
+            }// end if(opportunity.OPPORTUNITYID == 0) check
             else
             {
                 Opportunity dbEntry = context.Opportunities
@@ -44,9 +44,9 @@ namespace ElderSourceVolunteerManagementCore.Models
                     dbEntry.OpportunitySocialMedia = opportunity.OpportunitySocialMedia;
                     dbEntry.OpportunityOtherInterest = opportunity.OpportunityOtherInterest;
                     dbEntry.OpportunityDescription = opportunity.OpportunityDescription;
-                }
-            }
+                }// end if(dbEntry != null) check
+            }// end else
             context.SaveChanges();
-        }
-    }
-}
+        }// end SaveOpportunity method
+    }// end EFOpportuintyRepository class
+}// end ElderSourceVolunteerManagementCore.Models namespace

@@ -44,7 +44,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                     }
                     );
                 context.SaveChanges();
-            }
-        }
-    }
-}
+            }// end if(!context.Volunteers.Any()) check
+        }// end EnsurePopultated method
+    }// end SeedData class
+}// end ElderSourceVolunteerManagementCore.Models namespace

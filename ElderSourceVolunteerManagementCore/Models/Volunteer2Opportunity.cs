@@ -14,5 +14,5 @@ namespace ElderSourceVolunteerManagementCore.Models
         [Required]
         public int OPPORTUNITYID { get; set; }
         public int HoursWorked { get; set; }
-    }
-}
+    }// end Volunteer2Opportunity class
+}// end ElderSourceVolunteerManagementCore.Models namespace

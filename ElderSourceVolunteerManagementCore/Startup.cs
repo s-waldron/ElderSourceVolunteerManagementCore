@@ -21,7 +21,8 @@ namespace ElderSourceVolunteerManagementCore
         public Startup (IHostingEnvironment env)
         {
             Configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.json").Build();
-        }
+        }// end Startup constructor
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -32,7 +33,7 @@ namespace ElderSourceVolunteerManagementCore
             services.AddTransient<IOpportunityRepository, EFOpportunityRepository>();
             services.AddTransient<IVolunteer2OpportunityRepository, EFVolunteer2OpportunityRepository>();
             services.AddMvc();
-        }
+        }// end ConfigureServices method
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -40,6 +41,6 @@ namespace ElderSourceVolunteerManagementCore
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
             //SeedData.EnsurePopulated(app);
-        }
-    }
-}
+        }// end Configure method
+    }// end Startup class
+}// end ElderSourceVolunteerManagementCore namespace

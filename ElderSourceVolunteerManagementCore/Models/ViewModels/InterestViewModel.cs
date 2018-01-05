@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ElderSourceVolunteerManagementCore.Models.ViewModels
@@ -28,5 +25,5 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
             new SelectListItem {Value="sm", Text="Social Media"},
             new SelectListItem {Value="oi", Text="Other Interest"},
         };
-    }
-}
+    }// end IntrestViewModel class
+}// end ElderSourceVolunteerManagementCore.Models.ViewModels namespace

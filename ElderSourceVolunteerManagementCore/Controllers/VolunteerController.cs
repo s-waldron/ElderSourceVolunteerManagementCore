@@ -32,12 +32,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             {
                 repository.SaveVolunteer(volunteer);
                 return RedirectToAction("ListVolunteerEdit", "Volunteer");
-            }
+            }// end if(ModelState.IsValid) check
             else
             {
                 //something went wrong
                 return View(volunteer);
-            }
-        }
-    }
-}
+            }// end else
+        }// end EmployeeForm method
+    }// end VolunteerController class
+}// end ElderSourceVolunteerManagementCore.Controllers namespace

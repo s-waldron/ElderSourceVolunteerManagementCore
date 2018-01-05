@@ -20,6 +20,6 @@ namespace ElderSourceVolunteerManagementCore
                 .Build();
 
             host.Run();
-        }
-    }
-}
+        }// end Main method
+    }// end Program class
+}// end ElderSourceVolunteerManagementCore namespace

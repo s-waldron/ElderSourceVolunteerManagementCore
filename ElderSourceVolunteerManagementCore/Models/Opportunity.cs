@@ -25,4 +25,4 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string OpportunityOtherInterest { get; set; }
         public string OpportunityDescription { get; set; }
     }// end Opportunity class
-}
+}// end ElderSourceVolunteerManagementCore.Models namespace

@@ -10,7 +10,7 @@ namespace ElderSourceVolunteerManagementCore.Models
         public EFVolunteerRepository(ApplicationDbContext ctx)
         {
             context = ctx;
-        }
+        }// end EFVolunteerRepository constructor
 
         public IEnumerable<Volunteer> Volunteer => context.Volunteers;
 
@@ -19,7 +19,7 @@ namespace ElderSourceVolunteerManagementCore.Models
             if(volunteer.VOLUNTEERID == 0)
             {
                 context.Volunteers.Add(volunteer);
-            }
+            }// end if(volunteer.VOLUNTEERID == 0) check
             else
             {
                 Volunteer dbEntry = context.Volunteers
@@ -81,9 +81,9 @@ namespace ElderSourceVolunteerManagementCore.Models
                     dbEntry.FlaggedInformation = volunteer.FlaggedInformation;
                     dbEntry.GeneralNotes = volunteer.GeneralNotes;
                     dbEntry.UpdateHours = volunteer.UpdateHours;
-                }
-            }
+                }// end if(dbEntry != null) check
+            }// end else
             context.SaveChanges();
-        }
-    }
-}
+        }// end SaveVolunteer method
+    }// end EFVolunteerRepository class
+}// end ElderSourceVolunteerManagementCore.Models namespace

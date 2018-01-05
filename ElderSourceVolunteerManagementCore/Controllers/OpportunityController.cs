@@ -13,7 +13,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         public OpportunityController(IOpportunityRepository repo)
         {
             repository = repo;
-        }
+        }// end OpportunityController constructor
 
         public ViewResult ListOpportunityEdit() => View(repository.Opportunity);
         // GET: /<controller>/
@@ -30,12 +30,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             {
                 repository.SaveOpportunity(opportunity);
                 return RedirectToActionPermanent("ListOpportunityEdit", "Opportunity");
-            }
+            }// end if(ModelState.IsValid) check
             else
             {
                 //something went wrong
                 return View(opportunity);
-            }
-        }
+            }// end else
+        }// end OpportunityForm method
     }// end OpportunityController class
-}
+}// end ElderSourceVolunteerManagementCore.Controllers namespace

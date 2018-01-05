@@ -7,5 +7,5 @@ namespace ElderSourceVolunteerManagementCore.Models
         IEnumerable<Opportunity> Opportunity { get; }
 
         void SaveOpportunity(Opportunity opportunity);
-    }
-}
+    }// end IOpportunityRepositroy interface
+}// end ElderSourceVolunteerManagementCore.Models namespace

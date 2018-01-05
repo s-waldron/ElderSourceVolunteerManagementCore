@@ -15,7 +15,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         public HomeController(IOpportunityRepository repo)
         {
             repository = repo;
-        }
+        }// end HomeController constructor
 
         // GET: /<controller>/
         public ViewResult Index(string Interest)
@@ -90,14 +90,13 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                     return View(new InterestViewModel
                     {
                         Opportunity = repository.Opportunity
-                        .Where(o => Interest == null || o.OpportunityOtherInterest != null || o.OpportunityOtherInterest != "")
+                        .Where(o => Interest == null || o.OpportunityOtherInterest != null && o.OpportunityOtherInterest != "")
                     });
                 default:
                     return View(new InterestViewModel {
                         Opportunity = repository.Opportunity
                     });
-            }
-        }
-        
-    }
-}
+            }// end switch(Interest) statment
+        }// end Index method
+    }// end HomeController class
+}// end ElderSourceVolunteerManagementCore.Controller namespace

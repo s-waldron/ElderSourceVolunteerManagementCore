@@ -7,5 +7,5 @@ namespace ElderSourceVolunteerManagementCore.Models
         IEnumerable<Volunteer> Volunteer { get; }
 
         void SaveVolunteer(Volunteer volunteer);
-    }
-}
+    }// end IVolunteerRepository interface
+}// end ElderSourceVolunteerManagementCore.Models namespace
