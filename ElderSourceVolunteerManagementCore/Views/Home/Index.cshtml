@@ -1,7 +1,18 @@
-﻿@model IEnumerable<Opportunity>
+﻿@model InterestViewModel
 
+
+<div class="col-sm-3">
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <label>Interest:</label>
+        <select asp-for="Interest" asp-items="@Model.Interests">
+            <option>Select One...</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div class="col-sm-8">
 <table>
-    @foreach(var opp in Model)
+    @foreach(var opp in Model.Opportunity)
     {
         <tr>
             <td><h5>@opp.OpportunityName</h5></td>
@@ -9,3 +20,4 @@
         </tr>
     }
 </table>
+</div>
