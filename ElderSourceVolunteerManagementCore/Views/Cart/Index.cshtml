@@ -1,0 +1,24 @@
+﻿@model CartViewModel
+
+<h2>Your Cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Opportunity Name</th>
+            <th>Opportunity Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-left">@line.Opportunity.OpportunityName</td>
+                <td class="text-right">@line.Opportunity.OpportunityDescription</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">View More Opportunities</a>
+    <a class="btn btn-primary" asp-controller="Volunteer" asp-action="VolunteerForm">Signup</a>
+</div>

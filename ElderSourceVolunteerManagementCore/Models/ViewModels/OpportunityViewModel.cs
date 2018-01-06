@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ElderSourceVolunteerManagementCore.Infrastructure;
 
 namespace ElderSourceVolunteerManagementCore.Models.ViewModels
 {
-    public class InterestViewModel
+    public class OpportunityViewModel
     {
 
         public IEnumerable<Opportunity> Opportunity { get; set; }
 
         public string Interest { get; set; }
+
+        public string ReturnUrl { get; set; }
 
         public List<SelectListItem> Interests { get; } = new List<SelectListItem>
         {

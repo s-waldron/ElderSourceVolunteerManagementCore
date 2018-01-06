@@ -1,4 +1,4 @@
-﻿@model InterestViewModel
+﻿@model OpportunityViewModel
 
 
 <div class="col-sm-3">
@@ -11,13 +11,9 @@
     </form>
 </div>
 <div class="col-sm-8">
-<table>
     @foreach(var opp in Model.Opportunity)
-    {
-        <tr>
-            <td><h5>@opp.OpportunityName</h5></td>
-            <td>@opp.OpportunityDescription</td>
-        </tr>
-    }
-</table>
+     {
+        @Html.Partial("OpportunitySummery", opp)
+     }
+
 </div>

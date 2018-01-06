@@ -33,11 +33,14 @@ namespace ElderSourceVolunteerManagementCore
             services.AddTransient<IOpportunityRepository, EFOpportunityRepository>();
             services.AddTransient<IVolunteer2OpportunityRepository, EFVolunteer2OpportunityRepository>();
             services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
         }// end ConfigureServices method
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseSession();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
             //SeedData.EnsurePopulated(app);
