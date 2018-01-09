@@ -1,0 +1,32 @@
+﻿@model CreateModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Create" method="post">
+    <table>
+        <tr><td colspan="2" class="text-center">Create User</td></tr>
+        <tr>
+            <td><label asp-for="Name">User Name</label></td>
+            <td><input asp-for="Name" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="FirstName">First Name</label></td>
+            <td><input asp-for="FirstName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="LastName">Last Name</label></td>
+            <td><input asp-for="LastName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Email"></label></td>
+            <td><input asp-for="Email" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Password"></label></td>
+            <td><input asp-for="Password" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit" class="btn btn-default">Create</button></td>
+        </tr>
+    </table>
+</form>

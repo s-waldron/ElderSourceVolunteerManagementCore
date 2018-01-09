@@ -1,0 +1,34 @@
+﻿@model AppUsers
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Edit" method="post">
+    <table>
+        <tr>
+            <td><label asp-for="Id"></label></td>
+            <td><input asp-for="Id" disabled /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="FirstName">First Name</label></td>
+            <td><input asp-for="FirstName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="LastName">Last Name</label></td>
+            <td><input asp-for="LastName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Email"></label></td>
+            <td><input asp-for="Email" /></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td><input name="password" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-action="Index" class="btn btn-default">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>

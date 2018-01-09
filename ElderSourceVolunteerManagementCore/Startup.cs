@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using ElderSourceVolunteerManagementCore.Models;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ElderSourceVolunteerManagementCore
 {
@@ -27,6 +27,14 @@ namespace ElderSourceVolunteerManagementCore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            options.UseSqlServer(
+                Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddIdentity<AppUsers, IdentityRole>(opts => {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 12;
+            })
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddTransient<IVolunteerRepository, EFVolunteerRepository>();
@@ -42,6 +50,7 @@ namespace ElderSourceVolunteerManagementCore
         {
             app.UseSession();
             app.UseStaticFiles();
+            app.UseIdentity();
             app.UseMvcWithDefaultRoute();
             //SeedData.EnsurePopulated(app);
         }// end Configure method
