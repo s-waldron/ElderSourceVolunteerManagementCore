@@ -22,11 +22,21 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <li><a asp-area="" asp-controller="Volunteer" asp-action="ListVolunteerEdit">Volunteers</a></li>
+                        
                         <li><a asp-area="" asp-controller="Volunteer" asp-action="VolunteerForm">Volunteer Form</a></li>
                         <li><a asp-area="" asp-controller="Opportunity" asp-action="ListOpportunityEdit">Opportunities</a></li>
-                        <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                        }
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                        }
                     </ul>
 
                 </div>
