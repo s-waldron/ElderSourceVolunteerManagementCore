@@ -1,0 +1,14 @@
+﻿@model string
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Create" method="post">
+    <table>
+        <tr>
+            <td><label for="name">Role Name</label></td>
+            <td><input name="name" /></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-default">Cancel</a>
+</form>
