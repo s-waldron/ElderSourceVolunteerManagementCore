@@ -52,7 +52,7 @@ namespace ElderSourceVolunteerManagementCore
             app.UseStaticFiles();
             app.UseIdentity();
             app.UseMvcWithDefaultRoute();
-            //SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app);
         }// end Configure method
     }// end Startup class
 }// end ElderSourceVolunteerManagementCore namespace

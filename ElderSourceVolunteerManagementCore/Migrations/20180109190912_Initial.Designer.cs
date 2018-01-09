@@ -8,7 +8,7 @@ using ElderSourceVolunteerManagementCore.Models;
 namespace ElderSourceVolunteerManagementCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180108194111_Initial")]
+    [Migration("20180109190912_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
