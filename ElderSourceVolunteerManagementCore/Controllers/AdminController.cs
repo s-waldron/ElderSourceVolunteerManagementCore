@@ -4,12 +4,15 @@ using ElderSourceVolunteerManagementCore.Models;
 using ElderSourceVolunteerManagementCore.Models.ViewModels;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ElderSourceVolunteerManagementCore.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,Manager")]
+    
+    
     public class AdminController : Controller
     {
         private UserManager<AppUsers> userManager;
