@@ -8,13 +8,12 @@ using ElderSourceVolunteerManagementCore.Models;
 using ElderSourceVolunteerManagementCore.Models.ViewModels;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ElderSourceVolunteerManagementCore.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize]
     
     public class RoleAdminController : Controller
     {
@@ -27,7 +26,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             userManager = userMrg;
         }// end RoleAdminController constructor
         // GET: /<controller>/
-        public ViewResult Index() => View(roleManager.Roles);
+        public ViewResult RoleEdit() => View(roleManager.Roles);
 
         public IActionResult Create() => View();
 
@@ -39,7 +38,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 IdentityResult result = await roleManager.CreateAsync(new IdentityRole(name));
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("RoleEdit");
                 }// end if (result.Succeeded) check
                 else
                 {
@@ -58,7 +57,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 IdentityResult result = await roleManager.DeleteAsync(role);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("RoleEdit");
                 }// end if (result.Succeeded) check
                 else
                 {
@@ -69,7 +68,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             {
                 ModelState.AddModelError("", "No role found");
             }// end else
-            return View("Index", roleManager.Roles);
+            return View("RoleEdit", roleManager.Roles);
         }// end Delete HttpPost method
 
         private void AddErrorsFromResult(IdentityResult result)
@@ -131,7 +130,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             }// end if (ModleState.IsValid) check
             if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(RoleEdit));
             }// end if (ModelState.IsValid) check
             else
             {

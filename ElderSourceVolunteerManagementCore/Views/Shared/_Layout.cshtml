@@ -28,19 +28,22 @@
                             <li><a asp-area="" asp-controller="Volunteer" asp-action="VolunteerForm">Volunteer Form</a></li>
                             <li><a asp-area="" asp-controller="Opportunity" asp-action="ListOpportunityEdit">Opportunities</a></li>
                         }
-                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        @if (User.Identity.IsAuthenticated)
                         {
                             <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
                         }
-                        @if (User.IsInRole("Admin"))
+                        @if (User.Identity.IsAuthenticated)
                         {
-                            <li><a asp-area="" asp-controller="RoleAdmin" asp-action="Index">Role Admin</a></li>
+                            <li><a asp-area="" asp-controller="RoleAdmin" asp-action="RoleEdit">Role Admin</a></li>
                         }
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
                         }
-                        
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li><a asp-area="" asp-controller="Volunteer" asp-action="ListVolunteerEdit">Employee Login</a></li>
+                        }
                     </ul>
                     <a class="btn btn-default pull-right" asp-controller="Cart" asp-action="Index">Cart</a>
                 </div>
