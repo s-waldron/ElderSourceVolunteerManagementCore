@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ElderSourceVolunteerManagementCore.Controllers
 {
-    [Authorize]
+    [Authorize (Roles = "Admin,Manager")]
     
     
     public class AdminController : Controller

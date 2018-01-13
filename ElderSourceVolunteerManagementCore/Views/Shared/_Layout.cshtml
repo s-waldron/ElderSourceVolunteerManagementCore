@@ -28,11 +28,11 @@
                             <li><a asp-area="" asp-controller="Volunteer" asp-action="VolunteerForm">Volunteer Form</a></li>
                             <li><a asp-area="" asp-controller="Opportunity" asp-action="ListOpportunityEdit">Opportunities</a></li>
                         }
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {
                             <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
                         }
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User.IsInRole("Admin"))
                         {
                             <li><a asp-area="" asp-controller="RoleAdmin" asp-action="RoleEdit">Role Admin</a></li>
                         }

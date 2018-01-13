@@ -13,14 +13,14 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ElderSourceVolunteerManagementCore.Controllers
 {
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     
-    public class RoleAdminController : Controller
+    public class RoleManagementController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
         private UserManager<AppUsers> userManager;
 
-        public RoleAdminController(RoleManager<IdentityRole> roleMgr, UserManager<AppUsers> userMrg)
+        public RoleManagementController(RoleManager<IdentityRole> roleMgr, UserManager<AppUsers> userMrg)
         {
             roleManager = roleMgr;
             userManager = userMrg;

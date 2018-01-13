@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Opportunity>
 
+@foreach (var opp in Model)
+{
+    
 <table>
-    @foreach(var opp in Model)
-    {
         <tr>
             <td><label>Opportunity Name:</label></td>
             <td>@opp.OpportunityName</td>
@@ -15,5 +16,11 @@
             <td><label>Opportunity Description:</label></td>
             <td>@opp.OpportunityDescription</td>
         </tr>
-    }
+        <tr>
+            <td colspan="2">
+                
+            </td>
+        </tr>
+    
 </table>
+}
