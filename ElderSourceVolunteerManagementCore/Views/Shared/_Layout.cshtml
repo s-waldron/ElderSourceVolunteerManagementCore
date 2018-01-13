@@ -34,7 +34,7 @@
                         }
                         @if (User.IsInRole("Admin"))
                         {
-                            <li><a asp-area="" asp-controller="RoleAdmin" asp-action="RoleEdit">Role Admin</a></li>
+                            <li><a asp-area="" asp-controller="RoleManagement" asp-action="RoleEdit">Role Admin</a></li>
                         }
                         @if (User.Identity.IsAuthenticated)
                         {
