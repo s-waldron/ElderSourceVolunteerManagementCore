@@ -98,5 +98,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                     });
             }// end switch(Interest) statment
         }// end Index method
+
+
+        public IActionResult DisplayInformation(string id)
+        {
+            int idNumber = int.Parse(id);
+            return View(repository.Opportunity.Where(o => o.OPPORTUNITYID == idNumber));
+        }
     }// end HomeController class
 }// end ElderSourceVolunteerManagementCore.Controller namespace

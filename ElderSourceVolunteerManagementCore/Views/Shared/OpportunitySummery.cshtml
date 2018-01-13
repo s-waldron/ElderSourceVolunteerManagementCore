@@ -1,13 +1,17 @@
 ﻿@model Opportunity
 
-<form id="@Model.OPPORTUNITYID" asp-action="AddToCart"
-      asp-controller="Cart" method="post">
-    @Model.OpportunityName
-    <input type="hidden" name="opportunityId" value="@Model.OPPORTUNITYID" />
-    <input type="hidden" name="returnUrl"
-           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-    <button type="submit" class="btn btn-success btn-sm pull-right">
-        Add to Cart
-    </button>
-</form>
-@Model.OpportunityDescription
+<div>
+    <form id="@Model.OPPORTUNITYID" asp-action="AddToCart"
+          asp-controller="Cart" method="post">
+        @Model.OpportunityName
+        <input type="hidden" name="opportunityId" value="@Model.OPPORTUNITYID" />
+        <input type="hidden" name="returnUrl"
+               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <button type="submit" class="btn btn-success btn-sm pull-right">
+            Add to Cart
+        </button>
+        <a asp-controller="Home" asp-action="DisplayInformation" id="@Model.OPPORTUNITYID"
+           asp-route-id="@Model.OPPORTUNITYID" class="btn btn-sm btn-danger pull-right">More Information</a>
+    </form>
+    @Model.OpportunityDescription
+</div>

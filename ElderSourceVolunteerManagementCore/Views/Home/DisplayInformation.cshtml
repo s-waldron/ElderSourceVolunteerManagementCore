@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Opportunity>
+
+<div>
+    @foreach(var opp in Model)
+    {
+        @opp.OpportunityName
+        @opp.OpportunityDate
+        @opp.OpportunityDescription
+    }
+</div>
