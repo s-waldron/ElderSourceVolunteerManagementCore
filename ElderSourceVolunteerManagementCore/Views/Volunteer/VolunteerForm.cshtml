@@ -1,42 +1,43 @@
-﻿@model Volunteer
+﻿@model Volunteer2OpportunityViewModel
 
 <form asp-action="CreateVolunteer" method="post">
+    <input asp-for="@Model.OpportunityList" type="hidden" />
     <table class="table">
         <tr>
             <td colspan="2" style="text-align:center"><h4>Volunteer Form</h4></td>
         </tr>
         <tr>
-            <td><label asp-for="FirstName">First Name:</label></td>
-            <td><input asp-for="FirstName" /></td>
+            <td><label asp-for="@Model.volunteer.FirstName">First Name:</label></td>
+            <td><input asp-for="@Model.volunteer.FirstName" /></td>
         </tr>
         <tr>
-            <td><label asp-for="LastName">Last Name:</label></td>
-            <td><input asp-for="LastName" /></td>
+            <td><label asp-for="@Model.volunteer.LastName">Last Name:</label></td>
+            <td><input asp-for="@Model.volunteer.LastName" /></td>
         </tr>
         <tr>
-            <td><label asp-for="Address">Street Address:</label></td>
-            <td><input asp-for="Address" /></td>
+            <td><label asp-for="@Model.volunteer.Address">Street Address:</label></td>
+            <td><input asp-for="@Model.volunteer.Address" /></td>
         </tr>
         <tr>
-            <td><label asp-for="City">City:</label></td>
-            <td><input asp-for="City" />
+            <td><label asp-for="@Model.volunteer.City">City:</label></td>
+            <td><input asp-for="@Model.volunteer.City" />
             <td>
         </tr>
         <tr>
-            <td><label asp-for="State">State:</label></td>
-            <td><input asp-for="State" /></td>
+            <td><label asp-for="@Model.volunteer.State">State:</label></td>
+            <td><input asp-for="@Model.volunteer.State" /></td>
         </tr>
         <tr>
-            <td><label asp-for="ZipCode">Zip Code:</label></td>
-            <td><input asp-for="ZipCode" /></td>
+            <td><label asp-for="@Model.volunteer.ZipCode">Zip Code:</label></td>
+            <td><input asp-for="@Model.volunteer.ZipCode" /></td>
         </tr>
         <tr>
-            <td><label asp-for="Email">Email Address:</label></td>
-            <td><input asp-for="Email" /></td>
+            <td><label asp-for="@Model.volunteer.Email">Email Address:</label></td>
+            <td><input asp-for="@Model.volunteer.Email" /></td>
         </tr>
         <tr>
-            <td><label asp-for="DateOfBirth">Date of Birth:</label></td>
-            <td><input asp-for="DateOfBirth" /></td>
+            <td><label asp-for="@Model.volunteer.DateOfBirth">Date of Birth:</label></td>
+            <td><input asp-for="@Model.volunteer.DateOfBirth" /></td>
         </tr>
         <tr>
             <td><label>Availability:</label></td>
@@ -50,69 +51,69 @@
         </tr>
         <tr>
             <td><label>All Day:</label></td>
-            <td style="border:solid"><input asp-for="AvailableSunday" /></td>
-            <td style="border:solid"><input asp-for="AvailableMonday" /></td>
-            <td style="border:solid"><input asp-for="AvailableTuesday" /></td>
-            <td style="border:solid"><input asp-for="AvailableWednesday" /></td>
-            <td style="border:solid"><input asp-for="AvailableThursday" /></td>
-            <td style="border:solid"><input asp-for="AvailableFriday" /></td>
-            <td style="border:solid"><input asp-for="AvailableSaturday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSunday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableMonday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableTuesday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableWednesday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableThursday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableFriday" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSaturday" /></td>
         </tr>
         <tr>
             <td><label>Morning:</label></td>
-            <td style="border:solid"><input asp-for="AvailableSundayMorning" /></td>
-            <td style="border:solid"><input asp-for="AvailableMondayMorning" /></td>
-            <td style="border:solid"><input asp-for="AvailableTuesdayMorning" /></td>
-            <td style="border:solid"><input asp-for="AvailableWednesdayMorning" /></td>
-            <td style="border:solid"><input asp-for="AvailableThursdayMorning" /></td>
-            <td style="border:solid"><input asp-for="AvailableFridayMorning" /></td>
-            <td style="border:solid"><input asp-for="AvailableSaturdayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSundayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableMondayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableTuesdayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableWednesdayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableThursdayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableFridayMorning" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSaturdayMorning" /></td>
         </tr>
         <tr>
             <td><label>Afternoon:</label></td>
-            <td style="border:solid"><input asp-for="AvailableSundayAfternoon" /></td>
-            <td style="border:solid"><input asp-for="AvailableMondayAfternoon" /></td>
-            <td style="border:solid"><input asp-for="AvailableTuesdayAfternoon" /></td>
-            <td style="border:solid"><input asp-for="AvailableWednesdayAfternoon" /></td>
-            <td style="border:solid"><input asp-for="AvailableThursdayAfternoon" /></td>
-            <td style="border:solid"><input asp-for="AvailableFridayAfternoon" /></td>
-            <td style="border:solid"><input asp-for="AvailableSaturdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSundayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableMondayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableTuesdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableWednesdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableThursdayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableFridayAfternoon" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSaturdayAfternoon" /></td>
         </tr>
         <tr>
             <td><label>Evening:</label></td>
-            <td style="border:solid"><input asp-for="AvailableSundayEvening" /></td>
-            <td style="border:solid"><input asp-for="AvailableMondayEvening" /></td>
-            <td style="border:solid"><input asp-for="AvailableTuesdayEvening" /></td>
-            <td style="border:solid"><input asp-for="AvailableWednesdayEvening" /></td>
-            <td style="border:solid"><input asp-for="AvailableThursdayEvening" /></td>
-            <td style="border:solid"><input asp-for="AvailableFridayEvening" /></td>
-            <td style="border:solid"><input asp-for="AvailableSaturdayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSundayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableMondayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableTuesdayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableWednesdayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableThursdayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableFridayEvening" /></td>
+            <td style="border:solid"><input asp-for="@Model.volunteer.AvailableSaturdayEvening" /></td>
         </tr>
         <tr>
             <td colspan="2" style="text-align:center"><h4>Interest:</h4></td>
         </tr>
         <tr>
-            <td><input asp-for="Nutrition" /><label asp-for="Nutrition">Nutrition</label></td>
-            <td><input asp-for="TrainingFacilitator" /><label asp-for="TrainingFacilitator">Training Facilitator</label></td>
-            <td><input asp-for="Admin" /><label asp-for="Admin">Admin</label></td>
+            <td><input asp-for="@Model.volunteer.Nutrition" /><label asp-for="@Model.volunteer.Nutrition">Nutrition</label></td>
+            <td><input asp-for="@Model.volunteer.TrainingFacilitator" /><label asp-for="@Model.volunteer.TrainingFacilitator">Training Facilitator</label></td>
+            <td><input asp-for="@Model.volunteer.Admin" /><label asp-for="@Model.volunteer.Admin">Admin</label></td>
         </tr>
         <tr>
-            <td><input asp-for="General" /><label asp-for="General">General</label></td>
-            <td><input asp-for="HealthyLiving" /><label asp-for="HealthyLiving">Healthy Living</label></td>
-            <td><input asp-for="DiseaseManagement" /><label asp-for="DiseaseManagement">Disease Management</label></td>
+            <td><input asp-for="@Model.volunteer.General" /><label asp-for="@Model.volunteer.General">General</label></td>
+            <td><input asp-for="@Model.volunteer.HealthyLiving" /><label asp-for="@Model.volunteer.HealthyLiving">Healthy Living</label></td>
+            <td><input asp-for="@Model.volunteer.DiseaseManagement" /><label asp-for="@Model.volunteer.DiseaseManagement">Disease Management</label></td>
         </tr>
         <tr>
-            <td><input asp-for="FallsPrevention" /><label asp-for="FallsPrevention">Falls Prevention</label></td>
-            <td><input asp-for="Caregiver" /><label asp-for="Caregiver">Caregivers</label></td>
-            <td><input asp-for="MentalWellness" /><label asp-for="MentalWellness">Mental Wellness</label></td>
+            <td><input asp-for="@Model.volunteer.FallsPrevention" /><label asp-for="@Model.volunteer.FallsPrevention">Falls Prevention</label></td>
+            <td><input asp-for="@Model.volunteer.Caregiver" /><label asp-for="@Model.volunteer.Caregiver">Caregivers</label></td>
+            <td><input asp-for="@Model.volunteer.MentalWellness" /><label asp-for="@Model.volunteer.MentalWellness">Mental Wellness</label></td>
         </tr>
         <tr>
-            <td><input asp-for="Events" /><label asp-for="Events">Events</label></td>
-            <td><input asp-for="SocialMedia" /><label asp-for="SocialMedia">Social Media</label></td>
+            <td><input asp-for="@Model.volunteer.Events" /><label asp-for="@Model.volunteer.Events">Events</label></td>
+            <td><input asp-for="@Model.volunteer.SocialMedia" /><label asp-for="@Model.volunteer.SocialMedia">Social Media</label></td>
         </tr>
         <tr>
-            <td><label asp-for="OtherInterest">Other Interest:</label></td>
-            <td><input asp-for="OtherInterest" /></td>
+            <td><label asp-for="@Model.volunteer.OtherInterest">Other Interest:</label></td>
+            <td><input asp-for="@Model.volunteer.OtherInterest" /></td>
         </tr>
         <tr>
             <td col-span="2"><button type="submit">Submit</button></td>

@@ -1,0 +1,17 @@
+﻿@model Volunteer2OpportunityViewModel
+
+<table>
+    <tr>
+        <th>Volunteer First Name:</th>
+        <th>Volunteer Last Name:</th>
+        <th>Opportunity Name:</th>
+    </tr>
+    @foreach(var opp in Model.Opportunities)
+    {
+        <tr>
+            <td>@Model.Volunteer.FirstName</td>
+            <td>@Model.Volunteer.LastName</td>
+            <td>@opp.OpportunityName</td>
+        </tr>
+    }
+</table>

@@ -1,26 +1,32 @@
 ﻿@model IEnumerable<Opportunity>
 
+
 @foreach (var opp in Model)
-{
-    
-<table>
-        <tr>
-            <td><label>Opportunity Name:</label></td>
-            <td>@opp.OpportunityName</td>
-        </tr>
-        <tr>
-            <td><label>Opportunity Date and Time:</label></td>
-            <td>@opp.OpportunityDate</td>
-        </tr>
-        <tr>
-            <td><label>Opportunity Description:</label></td>
-            <td>@opp.OpportunityDescription</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                
-            </td>
-        </tr>
-    
-</table>
+{<form id="@opp.OPPORTUNITYID" asp-action="AddToCart"
+       asp-controller="Cart" method="post">
+        <input type="hidden" name="opportunityId" value="@opp.OPPORTUNITYID" />
+        <input type="hidden" name="returnUrl"
+               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <button type="submit" class="btn btn-success btn-sm pull-right">
+            Add to Cart
+        </button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-danger pull-right">More Opportunities</a>
+        <table>
+            <tr>
+                <td><label>Opportunity Name:</label></td>
+                <td>@opp.OpportunityName</td>
+            </tr>
+            <tr>
+                <td><label>Opportunity Date and Time:</label></td>
+                <td>@opp.OpportunityDate</td>
+            </tr>
+            <tr>
+                <td><label>Opportunity Description:</label></td>
+                <td>@opp.OpportunityDescription</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+        </table>
+    </form>
 }

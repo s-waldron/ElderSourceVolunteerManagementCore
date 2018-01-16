@@ -20,5 +20,9 @@
 </table>
 <div class="text-center">
     <a class="btn btn-primary" asp-controller="Home" asp-action="Index">View More Opportunities</a>
-    <a class="btn btn-primary" asp-controller="Volunteer" asp-action="VolunteerForm">Signup</a>
+    <form asp-controller="Volunteer" asp-action="VolunteerForm" id="cart" method="post">
+        <input type="hidden" value="@Model.Cart" />
+        <button class="btn btn-primary" type="submit" asp-controller="Volunteer" asp-action="VolunteerForm">Signup</button>
+    </form>
+    
 </div>
