@@ -23,7 +23,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 Cart = GetCart(),
                 ReturnUrl = returnUrl
             });
-        }
+        }// end Index method
 
         public RedirectToActionResult AddToCart(int opportunityId, string returnUrl)
         {
@@ -34,7 +34,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 Cart cart = GetCart();
                 cart.AddItem(opportunity);
                 SaveCart(cart);
-            }
+            }// end if (opportunity != null) check
             return RedirectToAction("Index", new { returnUrl });
         } // end AddToCart method
 
@@ -48,7 +48,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 Cart cart = GetCart();
                 cart.RemoveLine(opportunity);
                 SaveCart(cart);
-            }
+            }// end if (opportunity != null check
             return RedirectToAction("Index", new { returnUrl });
         } // end RemoveFromCart method
 

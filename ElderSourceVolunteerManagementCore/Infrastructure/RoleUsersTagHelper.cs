@@ -18,7 +18,7 @@ namespace ElderSourceVolunteerManagementCore.Infrastructure
         {
             userManager = usermgr;
             roleManager = rolemgr;
-        }
+        }// end RoleUsersTagHelper constructor
 
         [HtmlAttributeName("identity-role")]
         public string Role { get; set; }
@@ -34,10 +34,10 @@ namespace ElderSourceVolunteerManagementCore.Infrastructure
                     if (user != null && await userManager.IsInRoleAsync(user, role.Name))
                     {
                         names.Add(user.UserName);
-                    }
-                }
-            }
+                    }// end if (user != null && await userManager.IsInRoleAsync(user, role.Name)) check
+                }// end foreach loop
+            }// end if (role != null) check
             output.Content.SetContent(names.Count == 0 ? "No Users" : string.Join(", ", names));
-        }
-    }
-}
+        }// end ProcessAsync method
+    }// end RoleUsersTagHelper class
+}// end ElderSourceVolunteerManagementCore.Infrastructure namespace

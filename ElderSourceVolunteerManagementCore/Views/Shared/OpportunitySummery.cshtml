@@ -1,17 +1,78 @@
 ﻿@model Opportunity
 
-<div>
+<div class="well">
     <form id="@Model.OPPORTUNITYID" asp-action="AddToCart"
           asp-controller="Cart" method="post">
-        @Model.OpportunityName
-        <input type="hidden" name="opportunityId" value="@Model.OPPORTUNITYID" />
-        <input type="hidden" name="returnUrl"
-               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-        <button type="submit" class="btn btn-success btn-sm pull-right">
-            Add to Cart
-        </button>
-        <a asp-controller="Home" asp-action="DisplayInformation" id="@Model.OPPORTUNITYID"
-           asp-route-id="@Model.OPPORTUNITYID" class="btn btn-sm btn-danger pull-right">More Information</a>
+        <table>
+            <tr>
+                <td style="width:15%">@Model.OpportunityName</td>
+                <td style="width:15%">@Model.OpportunityDate</tdstyle="width:15%">
+                <td style="width:15%">
+                    <label>Interest:</label>
+                    @if (Model.OpportunityNutrition == true)
+                    {
+                        <label> Nutrition</label>
+                    }
+                    @if (Model.OpportunityAdmin == true)
+                    {
+                        <label> Admin</label>
+                    }
+                    @if (Model.OpportunityCaregiver == true)
+                    {
+                        <label> Care giver</label>
+                    }
+                    @if(Model.OpportunityDiseaseManagement == true)
+                    {
+                        <label> Disease Management</label>
+                    }
+                    @if(Model.OpportunityEvents == true)
+                    {
+                        <label> Events</label>
+                    }
+                    @if(Model.OpportunityFallsPrevention == true)
+                    {
+                        <label> Falls Prevention</label>
+                    }
+                    @if (Model.OpportunityGeneral == true)
+                    {
+                        <label> General</label>
+                    }
+                    @if(Model.OpportunityHealthyLiving == true)
+                    {
+                        <label> Healthy Living</label>
+                    }
+                    @if(Model.OpportunityMentalWellness == true)
+                    {
+                        <label> Mental Wellness</label>
+                    }
+                    @if(Model.OpportunitySocialMedia == true)
+                    {
+                        <label> Social Media</label>
+                    }
+                    @if (Model.OpportunityTrainingFacilitator == true)
+                    {
+                        <label> Training Facilitator</label>
+                    }
+                    @if(Model.OpportunityOtherInterest != null && Model.OpportunityOtherInterest != "")
+                    {
+                        <label> @Model.OpportunityOtherInterest</label>
+                    }
+                </td>
+                <td style="width:15%">
+                    <input type="hidden" name="opportunityId" value="@Model.OPPORTUNITYID" />
+                    <input type="hidden" name="returnUrl"
+                           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                    <button type="submit" class="btn btn-success btn-sm pull-right">
+                        Add to Cart
+                    </button>
+                    <a asp-controller="Home" asp-action="DisplayInformation" id="@Model.OPPORTUNITYID"
+                       asp-route-id="@Model.OPPORTUNITYID" class="btn btn-sm btn-danger pull-right">More Information</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">@Model.OpportunityDescription</td>
+            </tr>
+        </table>
     </form>
-    @Model.OpportunityDescription
+    
 </div>

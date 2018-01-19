@@ -9,6 +9,11 @@ namespace ElderSourceVolunteerManagementCore.Models
         public int OPPORTUNITYID { get; set; }
         public string OpportunityName { get; set; }
         public DateTime OpportunityDate { get; set; }
+        public string OpportunityStreet { get; set; }
+        public string OpportunityCity { get; set; }
+        public string OpportunityCounty { get; set; }
+        public string OpportunityState { get; set; }
+        public int OpportunityZipCode { get; set; }
         public Boolean OpportunityElderSource { get; set; }
         public Boolean OpportunityElderSourceInstitute { get; set; }
         public Boolean OpportunityNutrition { get; set; }

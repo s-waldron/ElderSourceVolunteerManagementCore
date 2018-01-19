@@ -13,14 +13,44 @@
             <td>@opp.OpportunityDate</td>
         </tr>
         <tr>
+            <td><label>Opportunity Street Address:</label></td>
+            <td>@opp.OpportunityStreet</td>
+        </tr>
+        <tr>
+            <td><label>Opportunity City:</label></td>
+            <td>@opp.OpportunityCity</td>
+        </tr>
+        <tr>
+            <td><label>Opportunity County:</label></td>
+            <td>@opp.OpportunityCounty</td>
+        </tr>
+        <tr>
+            <td><label>Opportunity State:</label></td>
+            <td>@opp.OpportunityState</td>
+        </tr>
+        <tr>
+            <td><label>Opportunity Zip Code:</label></td>
+            <td>@opp.OpportunityZipCode</td>
+        </tr>
+        <tr>
             <td><label>Opportunity Description:</label></td>
             <td>@opp.OpportunityDescription</td>
         </tr>
         <tr>
             <td colspan="2">
-                
+                <form id="@opp.OPPORTUNITYID" asp-action="AddToCart"
+                      asp-controller="Cart" method="post">
+                    <input type="hidden" name="opportunityId" value="@opp.OPPORTUNITYID" />
+                    <input type="hidden" name="returnUrl"
+                           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                    <button type="submit" class="btn btn-success btn-sm">
+                        Add to Cart
+                    </button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-danger">More Opportunities</a>
+                </form>
             </td>
         </tr>
     
 </table>
+
 }

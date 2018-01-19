@@ -8,5 +8,5 @@ namespace ElderSourceVolunteerManagementCore.Infrastructure
             request.QueryString.HasValue
             ? $"{request.Path}{request.QueryString}"
             : request.Path.ToString();
-    }
-}
+    }// end UrlExtensions class
+}// end ElderSourceVolunteerManagementCore.Infrastructure namespace

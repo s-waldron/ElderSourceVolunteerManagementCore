@@ -29,6 +29,11 @@ namespace ElderSourceVolunteerManagementCore.Models
                 {
                     dbEntry.OpportunityName = opportunity.OpportunityName;
                     dbEntry.OpportunityDate = opportunity.OpportunityDate;
+                    dbEntry.OpportunityStreet = opportunity.OpportunityStreet;
+                    dbEntry.OpportunityCity = opportunity.OpportunityCity;
+                    dbEntry.OpportunityCounty = opportunity.OpportunityCounty;
+                    dbEntry.OpportunityState = opportunity.OpportunityState;
+                    dbEntry.OpportunityZipCode = opportunity.OpportunityZipCode;
                     dbEntry.OpportunityElderSource = opportunity.OpportunityElderSource;
                     dbEntry.OpportunityElderSourceInstitute = opportunity.OpportunityElderSourceInstitute;
                     dbEntry.OpportunityNutrition = opportunity.OpportunityNutrition;

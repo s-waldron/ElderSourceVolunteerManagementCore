@@ -14,7 +14,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         public VolunteerController(IVolunteerRepository repo)
         {
             repository = repo;
-        }
+        }// end VolunteerController constructor
 
         [Authorize]
         public ViewResult ListVolunteerEdit() => View(repository.Volunteer);

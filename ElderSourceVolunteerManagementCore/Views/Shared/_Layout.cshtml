@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>ElderSource Volunteer Management</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
@@ -25,7 +25,6 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li><a asp-area="" asp-controller="Volunteer" asp-action="ListVolunteerEdit">Volunteers</a></li>
-                            <li><a asp-area="" asp-controller="Volunteer" asp-action="VolunteerForm">Volunteer Form</a></li>
                             <li><a asp-area="" asp-controller="Opportunity" asp-action="ListOpportunityEdit">Opportunities</a></li>
                         }
                         @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
@@ -50,7 +49,7 @@
             </div>
         </nav>
     </div>
-    <div>
+    <div style="margin-left:1%">
         @RenderBody()
     </div>
 </body>
