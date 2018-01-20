@@ -62,5 +62,6 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string FlaggedInformation { get; set; }
         public string GeneralNotes { get; set; }
         public int UpdateHours { get; set; }
+        public Boolean Interviewed { get; set; }
     }// end Volunteer class
 }// end ElderSourceVolunteerManagementCore.Models namespace
