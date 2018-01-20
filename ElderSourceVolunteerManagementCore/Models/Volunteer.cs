@@ -14,6 +14,7 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
         public string Email { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
         public Boolean AvailableMonday { get; set; }
         public Boolean AvailableMondayMorning { get; set; }
@@ -62,5 +63,6 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string FlaggedInformation { get; set; }
         public string GeneralNotes { get; set; }
         public int UpdateHours { get; set; }
+        public Boolean Interviewed { get; set; }
     }// end Volunteer class
 }// end ElderSourceVolunteerManagementCore.Models namespace

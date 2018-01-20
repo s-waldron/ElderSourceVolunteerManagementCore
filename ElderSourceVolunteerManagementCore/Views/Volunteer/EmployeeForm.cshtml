@@ -157,3 +157,7 @@
         </tr>
     </table>
 </form>
+<form asp-controller="Volunteer2Opportunity" asp-action="Index" method="post">
+    <input type="hidden" asp-for="@Model.VOLUNTEERID" />
+    <button type="submit">Update Hours</button>
+</form>

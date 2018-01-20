@@ -1,0 +1,7 @@
+﻿@model Volunteer2OpprotunityViewModel
+
+@Model.Volunteer.FirstName
+@foreach(var opp in Model.OpportunityList)
+{
+    @opp.OpportunityName
+}
