@@ -38,19 +38,22 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Volunteer2OpportunityEdit(Volunteer2OpprotunityViewModel volunteer2OpprotunityViewModel)
+        public IActionResult Volunteer2OpportunityEdit(int VOLUNTEERID, int OPPORTUNITYID)
         {
-            Volunteer volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol => vol.VOLUNTEERID == volunteer2OpprotunityViewModel.VOLUNTEERID);
-            Opportunity opportunity = opportunityRepository.Opportunity.FirstOrDefault(opp => opp.OPPORTUNITYID == volunteer2OpprotunityViewModel.OPPORTUNITYID);
+            Volunteer volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol => vol.VOLUNTEERID == VOLUNTEERID);
+            Opportunity opportunity = opportunityRepository.Opportunity.FirstOrDefault(opp => opp.OPPORTUNITYID == OPPORTUNITYID);
             Volunteer2Opportunity volunteer2Opportunity = new Volunteer2Opportunity();
             volunteer2Opportunity.Volunteer = volunteer;
             volunteer2Opportunity.Opportunity = opportunity;
-            volunteer2Opportunity.OPPORTUNITYID = opportunityRepository.Opportunity.FirstOrDefault(opp1 => opp1.OPPORTUNITYID == volunteer2OpprotunityViewModel.OPPORTUNITYID).OPPORTUNITYID;
-            volunteer2Opportunity.VOLUNTEERID = volunteerRepository.Volunteer.FirstOrDefault(vol1 => vol1.VOLUNTEERID == volunteer2OpprotunityViewModel.VOLUNTEERID).VOLUNTEERID;
+            volunteer2Opportunity.OPPORTUNITYID = opportunityRepository.Opportunity.FirstOrDefault(opp1 => opp1.OPPORTUNITYID == OPPORTUNITYID).OPPORTUNITYID;
+            volunteer2Opportunity.VOLUNTEERID = volunteerRepository.Volunteer.FirstOrDefault(vol1 => vol1.VOLUNTEERID == VOLUNTEERID).VOLUNTEERID;
             volunteer2Opportunity.HoursWorked = 0;
             volunteer2OpportunityReopsitory.SaveVolunteer2Opportunity(volunteer2Opportunity);
-            volunteer2OpprotunityViewModel.Volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol2 => vol2.VOLUNTEERID == volunteer2OpprotunityViewModel.VOLUNTEERID);
-            return View("Edit", volunteer2OpprotunityViewModel);
+            //volunteer2OpprotunityViewModel.Volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol2 => vol2.VOLUNTEERID == volunteer2OpprotunityViewModel.VOLUNTEERID);
+            return View("Edit", new Volunteer2OpprotunityViewModel {
+                Volunteer = volunteer,
+                Opportunity = opportunity
+            });
         }
     }
 }
