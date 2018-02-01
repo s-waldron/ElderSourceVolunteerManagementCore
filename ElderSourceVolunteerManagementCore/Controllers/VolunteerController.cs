@@ -16,7 +16,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             repository = repo;
         }// end VolunteerController constructor
 
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         public ViewResult ListVolunteerEdit() => View(repository.Volunteer);
 
         // GET: /<controller>/
@@ -36,13 +36,13 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             }// end else
         }// end CreateVolunteer method
 
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         public ViewResult Create() => View("EmployeeForm", new Volunteer());
 
         public ViewResult Edit(int VolunteerID) => View("EmployeeForm",repository.Volunteer.FirstOrDefault
             (vol => vol.VOLUNTEERID == VolunteerID));
 
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         [HttpPost]
         public IActionResult EmployeeForm(Volunteer volunteer)
         {
