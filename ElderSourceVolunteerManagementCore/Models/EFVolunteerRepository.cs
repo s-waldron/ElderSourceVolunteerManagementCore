@@ -81,6 +81,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                     dbEntry.FlaggedInformation = volunteer.FlaggedInformation;
                     dbEntry.GeneralNotes = volunteer.GeneralNotes;
                     dbEntry.UpdateHours = volunteer.UpdateHours;
+                    dbEntry.Interviewed = volunteer.Interviewed;
                 }// end if(dbEntry != null) check
             }// end else
             context.SaveChanges();

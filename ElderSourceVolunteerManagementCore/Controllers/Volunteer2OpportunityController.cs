@@ -12,7 +12,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 {
     public class Volunteer2OpportunityController : Controller
     {
-        private int volunteerId;
         private IVolunteerRepository volunteerRepository;
         private IOpportunityRepository opportunityRepository;
         private IVolunteer2OpportunityRepository volunteer2OpportunityReopsitory;
@@ -23,20 +22,19 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             volunteerRepository = volRepo;
             opportunityRepository = oppRepo;
             volunteer2OpportunityReopsitory = v2oRepo;
-        }
+        }// end Volunteer2OpportunityController constructor
 
         [HttpPost]
         public IActionResult Index(int VOLUNTEERID)
         {
-            volunteerId = VOLUNTEERID;
             Volunteer volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol => vol.VOLUNTEERID == VOLUNTEERID);
             return View(new Volunteer2OpprotunityViewModel {
                 Volunteer = volunteer,
                 OpportunityList = opportunityRepository.Opportunity,
                 VOLUNTEERID = volunteer.VOLUNTEERID
             });
-        }
-
+        }// end Index [HttpPost] method
+        
         [HttpPost]
         public IActionResult Volunteer2OpportunityEdit(int VOLUNTEERID, int OPPORTUNITYID)
         {
@@ -54,6 +52,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 Volunteer = volunteer,
                 Opportunity = opportunity
             });
-        }
-    }
-}
+        }// end Volunteer2OpportunityEdit [HttpPost] method
+    }// end Volunteer2OpportunityController class
+}// end ElderSourceVolunteerManagementCore.Controllers namespace

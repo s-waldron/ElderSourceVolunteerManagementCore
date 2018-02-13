@@ -38,7 +38,8 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 
         [Authorize(Roles = "Employee,Manager,Admin")]
         public ViewResult Create() => View("EmployeeForm", new Volunteer());
-
+        
+        [Authorize (Roles = "Employee,Manager,Admin")]
         public ViewResult Edit(int VolunteerID) => View("EmployeeForm",repository.Volunteer.FirstOrDefault
             (vol => vol.VOLUNTEERID == VolunteerID));
 

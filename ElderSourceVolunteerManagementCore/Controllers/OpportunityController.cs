@@ -16,18 +16,18 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             repository = repo;
         }// end OpportunityController constructor
         
-        [Authorize]
+        [Authorize (Roles = "Employee,Manager,Admin")]
         public ViewResult ListOpportunityEdit() => View(repository.Opportunity);
         
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         // GET: /<controller>/
         public ViewResult Edit(int OpportunityID) => View("OpportunityForm",repository.Opportunity.FirstOrDefault(
             opp => opp.OPPORTUNITYID == OpportunityID));
 
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         public ViewResult Create() => View("OpportunityForm", new Opportunity());
 
-        [Authorize]
+        [Authorize (Roles = "Employee,Manager,Admin")]
         [HttpPost]
         public IActionResult OpportunityForm(Opportunity opportunity)
         {
