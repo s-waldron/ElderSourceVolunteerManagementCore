@@ -31,10 +31,9 @@ namespace ElderSourceVolunteerManagementCore.Models
                     dbEntry.Opportunity = volunteer2Opportunity.Opportunity;
                     dbEntry.OPPORTUNITYID = volunteer2Opportunity.OPPORTUNITYID;
                     dbEntry.VOLUNTEERID = volunteer2Opportunity.VOLUNTEERID;
-                    dbEntry.HoursWorked = volunteer2Opportunity.HoursWorked;
-                }
-            }
+                }// end dbEntry != null if check
+            }// end else check
             context.SaveChanges();
-        }
+        }// end SaveVolunteer2Opportunity method
     }// end EFVolunteer2OpportunityRepository class
 }// end ElderSourceVolunteerManagementCore.Models namespace

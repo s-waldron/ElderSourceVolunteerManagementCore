@@ -40,6 +40,8 @@ namespace ElderSourceVolunteerManagementCore
             services.AddTransient<IVolunteerRepository, EFVolunteerRepository>();
             services.AddTransient<IOpportunityRepository, EFOpportunityRepository>();
             services.AddTransient<IVolunteer2OpportunityRepository, EFVolunteer2OpportunityRepository>();
+            services.AddTransient<IVolunteer2OpportunityHoursWorkedRepository, EFVolunteer2OpportunityHoursWorkedRepository>();
+            services.AddTransient<IVolunteerUpdateUserRespository, EFVolunteerUpdateUserRepository>();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
