@@ -12,7 +12,7 @@ namespace ElderSourceVolunteerManagementCore.Models
         public EFVolunteerUpdateUserRepository(ApplicationDbContext ctx)
         {
             context = ctx;
-        }// end EFVolunteerRepository constructor
+        }// end EFVolunteerUpdateUserRepository constructor
 
         public IEnumerable<VolunteerUpdateUser> VolunteerUpdateUser => context.VolunteerUpdateUser;
 
@@ -21,7 +21,7 @@ namespace ElderSourceVolunteerManagementCore.Models
             if (volunteerUpdateUser.VOLUNTEERUPDATEUSERID == 0)
             {
                 context.VolunteerUpdateUser.Add(volunteerUpdateUser);
-            }// end if(volunteer.VOLUNTEERID == 0) check
+            }// end if(volunteerUpdateUser.VOLUNTEERUPDATEUSERID == 0) check
             else
             {
                 VolunteerUpdateUser dbEntry = context.VolunteerUpdateUser
@@ -29,11 +29,12 @@ namespace ElderSourceVolunteerManagementCore.Models
                 if (dbEntry != null)
                 {
                     dbEntry.VOLUNTEERID = volunteerUpdateUser.VOLUNTEERID;
-                    dbEntry.Email = volunteerUpdateUser.Email;
-                    dbEntry.AppUsers = volunteerUpdateUser.AppUsers;
-                    dbEntry.DateUpdated = System.DateTime.Now;
-                }
-            }
-        }
-    }
-}
+                    dbEntry.Volunteer = volunteerUpdateUser.Volunteer;
+                    dbEntry.UserName = volunteerUpdateUser.UserName;
+                    dbEntry.DateUpdated = volunteerUpdateUser.DateUpdated;
+                }// end if (dbEntry != null) check
+            }// end else
+            context.SaveChanges();
+        }// end SaveVolunteerUpdateUser method
+    }// end EFVolunteerUpdateUser class
+}// end ElderSourceVolunteerManagementCore.Models namespace

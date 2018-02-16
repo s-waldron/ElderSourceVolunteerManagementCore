@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace ElderSourceVolunteerManagementCore.Models
 {
     public class VolunteerUpdateUser
@@ -14,9 +15,7 @@ namespace ElderSourceVolunteerManagementCore.Models
         [ForeignKey ("Volunteer")]
         public int VOLUNTEERID { get; set; }
         public Volunteer Volunteer { get; set; }
-        [ForeignKey ("AppUsers")]
-        public string Email { get; set; }
-        public AppUsers AppUsers { get; set; }
+        public string UserName { get; set; }
         public DateTime DateUpdated { get; set; }
     }
 }

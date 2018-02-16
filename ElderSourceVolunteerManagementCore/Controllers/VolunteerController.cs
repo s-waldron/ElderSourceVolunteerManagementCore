@@ -10,10 +10,13 @@ namespace ElderSourceVolunteerManagementCore.Controllers
     public class VolunteerController : Controller
     {
         private IVolunteerRepository repository;
+        private IVolunteerUpdateUserRespository volunteerUpdateUserRespository;
+        public string LoggedInUser => User.Identity.Name;
 
-        public VolunteerController(IVolunteerRepository repo)
+        public VolunteerController(IVolunteerRepository repo, IVolunteerUpdateUserRespository vRepo)
         {
             repository = repo;
+            volunteerUpdateUserRespository = vRepo;
         }// end VolunteerController constructor
 
         [Authorize(Roles = "Employee,Manager,Admin")]
@@ -50,6 +53,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             if (ModelState.IsValid)
             {
                 repository.SaveVolunteer(volunteer);
+                VolunteerUpdateUser volunteerUpdateUser = new VolunteerUpdateUser();
+                volunteerUpdateUser.VOLUNTEERID = repository.Volunteer.FirstOrDefault(vol => vol.Email == volunteer.Email).VOLUNTEERID;
+                volunteerUpdateUser.Volunteer = repository.Volunteer.FirstOrDefault(vol1 => vol1.Email == volunteer.Email);
+                volunteerUpdateUser.UserName = LoggedInUser;
+                volunteerUpdateUser.DateUpdated = System.DateTime.Now;
+                volunteerUpdateUserRespository.SaveVolunteerUpdateUser(volunteerUpdateUser);
                 return RedirectToAction("ListVolunteerEdit", "Volunteer");
             }// end if(ModelState.IsValid) check
             else

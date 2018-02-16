@@ -8,9 +8,10 @@ using ElderSourceVolunteerManagementCore.Models;
 namespace ElderSourceVolunteerManagementCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180214001647_c")]
+    partial class c
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.4")
@@ -235,7 +236,7 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
                     b.Property<DateTime>("DateUpdated");
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("Email");
 
                     b.Property<int>("VOLUNTEERID");
 

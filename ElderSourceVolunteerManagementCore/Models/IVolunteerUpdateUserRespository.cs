@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ElderSourceVolunteerManagementCore.Models
 {
-    interface IVolunteerUpdateUserRespository
+    public interface IVolunteerUpdateUserRespository
     {
         IEnumerable<VolunteerUpdateUser> VolunteerUpdateUser { get; }
 

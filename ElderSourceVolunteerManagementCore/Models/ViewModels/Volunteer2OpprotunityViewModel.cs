@@ -12,5 +12,6 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
         public IEnumerable<Opportunity> OpportunityList { get; set; }
         public int VOLUNTEERID { get; set; }
         public int OPPORTUNITYID { get; set; }
+        
     }
 }

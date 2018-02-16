@@ -1,4 +1,4 @@
-﻿@model Volunteer2OpprotunityViewModel
-
-@Model.Volunteer.FirstName
-@Model.Opportunity.OpportunityName
+﻿@model Volunteer2OpportunityUpdateHoursViewModel
+<p>@ViewBag.Hello</p>
+<a class="btn" asp-controller="Volunteer" asp-action="ListVolunteerEdit">Add More Volunteers To Opportunities</a>
+    @ViewData["Volunteer2Opportuinty"].ToString()

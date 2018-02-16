@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ElderSourceVolunteerManagementCore.Models
 {
-    interface IVolunteer2OpportunityHoursWorkedRepository
+    public interface IVolunteer2OpportunityHoursWorkedRepository
     {
         IEnumerable<Volunteer2OpportunityHoursWorked> Volunteer2OpportunityHoursWorked { get; }
 
