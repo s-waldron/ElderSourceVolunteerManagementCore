@@ -18,6 +18,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 
         public void SaveVolunteerUpdateUser(VolunteerUpdateUser volunteerUpdateUser)
         {
+            context.Database.BeginTransaction();
             if (volunteerUpdateUser.VOLUNTEERUPDATEUSERID == 0)
             {
                 context.VolunteerUpdateUser.Add(volunteerUpdateUser);
@@ -35,6 +36,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                 }// end if (dbEntry != null) check
             }// end else
             context.SaveChanges();
+            context.Database.CommitTransaction();
         }// end SaveVolunteerUpdateUser method
     }// end EFVolunteerUpdateUser class
 }// end ElderSourceVolunteerManagementCore.Models namespace

@@ -52,13 +52,10 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 repository.SaveVolunteer(volunteer);
-                VolunteerUpdateUser volunteerUpdateUser = new VolunteerUpdateUser();
-                volunteerUpdateUser.VOLUNTEERID = repository.Volunteer.FirstOrDefault(vol => vol.Email == volunteer.Email).VOLUNTEERID;
-                volunteerUpdateUser.Volunteer = repository.Volunteer.FirstOrDefault(vol1 => vol1.Email == volunteer.Email);
-                volunteerUpdateUser.UserName = LoggedInUser;
-                volunteerUpdateUser.DateUpdated = System.DateTime.Now;
-                volunteerUpdateUserRespository.SaveVolunteerUpdateUser(volunteerUpdateUser);
+                AddToVolUpdateUser(volunteer);
+                
                 return RedirectToAction("ListVolunteerEdit", "Volunteer");
             }// end if(ModelState.IsValid) check
             else
@@ -67,5 +64,18 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 return View(volunteer);
             }// end else
         }// end EmployeeForm method
+
+        private VolunteerUpdateUser AddToVolUpdateUser (Volunteer volunteer)
+        {
+            VolunteerUpdateUser volunteerUpdateUser = new VolunteerUpdateUser
+            {
+                VOLUNTEERID = repository.Volunteer.FirstOrDefault(vol => vol.Email == volunteer.Email).VOLUNTEERID,
+                Volunteer = repository.Volunteer.FirstOrDefault(vol1 => vol1.Email == volunteer.Email),
+                UserName = LoggedInUser,
+                DateUpdated = System.DateTime.Now
+            };
+            volunteerUpdateUserRespository.SaveVolunteerUpdateUser(volunteerUpdateUser);
+            return volunteerUpdateUser;
+        }
     }// end VolunteerController class
 }// end ElderSourceVolunteerManagementCore.Controllers namespace

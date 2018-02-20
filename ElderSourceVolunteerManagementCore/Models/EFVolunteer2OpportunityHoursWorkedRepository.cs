@@ -19,6 +19,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 
         public void SaveVolunteer2OpportunityHoursWorked(Volunteer2OpportunityHoursWorked volunteer2OpportunityHoursWorked)
         {
+            context.Database.BeginTransaction();
             if (volunteer2OpportunityHoursWorked.VOLUNTEER2OPPORTUNITYHOURSWORKEDID == 0)
             {
                 context.Volunteer2OpprotunityHoursWorked.Add(volunteer2OpportunityHoursWorked);
@@ -36,6 +37,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                 }// end dbEntry != null if check
             }// end else check
             context.SaveChanges();
+            context.Database.CommitTransaction();
         }// end SaveVolunteer2OpportunityHoursWorked method
     }// end EFVolunteer2OpportuintyHoursWorkedRepository class
 }// end ElderSourceVolunteerManagementCore.Models namespace

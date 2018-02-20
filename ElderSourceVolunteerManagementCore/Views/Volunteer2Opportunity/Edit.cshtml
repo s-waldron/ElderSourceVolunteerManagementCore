@@ -1,4 +1,19 @@
 ﻿@model Volunteer2OpportunityUpdateHoursViewModel
 <p>@ViewBag.Hello</p>
 <a class="btn" asp-controller="Volunteer" asp-action="ListVolunteerEdit">Add More Volunteers To Opportunities</a>
-    @ViewData["Volunteer2Opportuinty"].ToString()
+
+@foreach(var v2o in Model.Volunteer2OpportunityList)
+{
+    @if (v2o.Volunteer != null)
+    {
+        <p>@v2o.Volunteer.FirstName</p>
+    }
+    @if (v2o.OPPORTUNITYID != null)
+    {
+        <p>OPPORTUNITYID: @v2o.OPPORTUNITYID</p>
+    }
+    @if (v2o.Opportunity != null)
+    {
+        <p>@v2o.Opportunity.OpportunityName</p>
+    }
+}

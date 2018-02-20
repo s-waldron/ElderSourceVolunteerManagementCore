@@ -16,6 +16,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 
         public void SaveVolunteer(Volunteer volunteer)
         {
+            context.Database.BeginTransaction();
             if(volunteer.VOLUNTEERID == 0)
             {
                 context.Volunteers.Add(volunteer);
@@ -85,6 +86,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                 }// end if(dbEntry != null) check
             }// end else
             context.SaveChanges();
+            context.Database.CommitTransaction();
         }// end SaveVolunteer method
     }// end EFVolunteerRepository class
 }// end ElderSourceVolunteerManagementCore.Models namespace

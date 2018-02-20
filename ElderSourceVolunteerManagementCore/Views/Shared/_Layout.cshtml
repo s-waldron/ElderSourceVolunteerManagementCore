@@ -35,6 +35,10 @@
                         {
                             <li><a asp-area="" asp-controller="RoleManagement" asp-action="RoleEdit">Role Admin</a></li>
                         }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><a asp-area="" asp-controller="Audit" asp-action="Index">Audit</a></li>
+                        }
                         @if (User.IsInRole("Employee") || User.IsInRole("Manager") || User.IsInRole("Admin") || User.IsInRole("Non Active User"))
                         {
                             <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
