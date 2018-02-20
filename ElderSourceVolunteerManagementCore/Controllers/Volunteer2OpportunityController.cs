@@ -16,13 +16,15 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         private IVolunteerRepository volunteerRepository;
         private IOpportunityRepository opportunityRepository;
         private IVolunteer2OpportunityRepository volunteer2OpportunityReopsitory;
+        ApplicationDbContext context;
 
         public Volunteer2OpportunityController(IVolunteerRepository volRepo,
-            IOpportunityRepository oppRepo, IVolunteer2OpportunityRepository v2oRepo)
+            IOpportunityRepository oppRepo, IVolunteer2OpportunityRepository v2oRepo, ApplicationDbContext ctx)
         {
             volunteerRepository = volRepo;
             opportunityRepository = oppRepo;
             volunteer2OpportunityReopsitory = v2oRepo;
+            context = ctx;
         }// end Volunteer2OpportunityController constructor
 
         [HttpPost]
@@ -43,16 +45,18 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             Volunteer volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol => vol.VOLUNTEERID == VOLUNTEERID);
             Opportunity opportunity = opportunityRepository.Opportunity.FirstOrDefault(opp => opp.OPPORTUNITYID == OPPORTUNITYID);
             
-            if (check(VOLUNTEERID, OPPORTUNITYID))
+            if (Check(VOLUNTEERID, OPPORTUNITYID))
             {
-                addToTable(volunteer, opportunity, VOLUNTEERID, OPPORTUNITYID);
-            }
+                context.Database.BeginTransaction();
+                AddToTable(volunteer, opportunity, VOLUNTEERID, OPPORTUNITYID);
+                context.Database.CommitTransaction();
+            }// end Check if check
             ViewData["Volunteer2Opportuinty"] = volunteer2OpportunityReopsitory.Volunteer2Opportunity;
             //volunteer2OpprotunityViewModel.Volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol2 => vol2.VOLUNTEERID == volunteer2OpprotunityViewModel.VOLUNTEERID);
-            return View("Edit", support(VOLUNTEERID, OPPORTUNITYID));
+            return View("Edit", Support(VOLUNTEERID, OPPORTUNITYID));
         }// end Volunteer2OpportunityEdit [HttpPost] method
 
-        private Volunteer2OpportunityUpdateHoursViewModel support(int VOLUNTEERID, int OPPORTUNITYID)
+        private Volunteer2OpportunityUpdateHoursViewModel Support(int VOLUNTEERID, int OPPORTUNITYID)
         {
             Volunteer2OpportunityUpdateHoursViewModel volunteer2OpportunityUpdateHours
                 = new Volunteer2OpportunityUpdateHoursViewModel
@@ -63,14 +67,14 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             return volunteer2OpportunityUpdateHours;
         }// end support method
 
-        private Boolean check(int VOLUNTEERID, int OPPORTUNITYID)
+        private Boolean Check(int VOLUNTEERID, int OPPORTUNITYID)
         {
             Volunteer2Opportunity volunteer2 = volunteer2OpportunityReopsitory.Volunteer2Opportunity
                 .FirstOrDefault(v2o => v2o.VOLUNTEERID == VOLUNTEERID && v2o.OPPORTUNITYID == OPPORTUNITYID);
             return volunteer2 == null;
         }// end check method
 
-        private void addToTable(Volunteer volunteer, Opportunity opportunity, int VOLUNTEERID, int OPPORTUNITYID)
+        private void AddToTable(Volunteer volunteer, Opportunity opportunity, int VOLUNTEERID, int OPPORTUNITYID)
         {
             Volunteer2Opportunity volunteer2Opportunity = new Volunteer2Opportunity
             {
@@ -80,6 +84,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 VOLUNTEERID = volunteerRepository.Volunteer.FirstOrDefault(vol1 => vol1.VOLUNTEERID == VOLUNTEERID).VOLUNTEERID
             };
             volunteer2OpportunityReopsitory.SaveVolunteer2Opportunity(volunteer2Opportunity);
-        }
+        }// end AddToTable method
     }// end Volunteer2OpportunityController class
 }// end ElderSourceVolunteerManagementCore.Controllers namespace

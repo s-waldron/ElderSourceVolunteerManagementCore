@@ -17,16 +17,14 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         public AuditController (IVolunteerUpdateUserRespository volunteerUpdateUserRespo)
         {
             volunteerUpdateUserRespository = volunteerUpdateUserRespo;
-        }
+        }// end AuditController constructor
         // GET: /<controller>/
-        public IActionResult Index() => View(support());
-        private AuditViewModel support()
+        public IActionResult Index() => View(Support());
+        private AuditViewModel Support()
         {
             AuditViewModel auditViewModel = new AuditViewModel();
             auditViewModel.AuditList = volunteerUpdateUserRespository.VolunteerUpdateUser;
             return auditViewModel;
-        }
-    }
-
-    
-}
+        }// end AuditViewModel
+    }// end AuditController class
+}// end ElderSourceVolunteerManagementCore.Controllers namespace

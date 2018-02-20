@@ -9,14 +9,16 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 {
     public class VolunteerController : Controller
     {
+        ApplicationDbContext context;
         private IVolunteerRepository repository;
         private IVolunteerUpdateUserRespository volunteerUpdateUserRespository;
         public string LoggedInUser => User.Identity.Name;
 
-        public VolunteerController(IVolunteerRepository repo, IVolunteerUpdateUserRespository vRepo)
+        public VolunteerController(IVolunteerRepository repo, IVolunteerUpdateUserRespository vRepo, ApplicationDbContext ctx)
         {
             repository = repo;
             volunteerUpdateUserRespository = vRepo;
+            context = ctx;
         }// end VolunteerController constructor
 
         [Authorize(Roles = "Employee,Manager,Admin")]
@@ -52,9 +54,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                context.Database.BeginTransaction();
                 repository.SaveVolunteer(volunteer);
+                context.Database.CommitTransaction();
+                context.Database.BeginTransaction();
                 AddToVolUpdateUser(volunteer);
+                context.Database.CommitTransaction();
                 
                 return RedirectToAction("ListVolunteerEdit", "Volunteer");
             }// end if(ModelState.IsValid) check

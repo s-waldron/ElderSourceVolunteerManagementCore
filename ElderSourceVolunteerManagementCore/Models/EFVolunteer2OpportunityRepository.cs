@@ -16,7 +16,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 
         public void SaveVolunteer2Opportunity(Volunteer2Opportunity volunteer2Opportunity)
         {
-            context.Database.BeginTransaction();
+            
             if (volunteer2Opportunity.VOLUNTEER2OPPORTUNITYID == 0)
             {
                 context.Volunteer2Opportunities.Add(volunteer2Opportunity);
@@ -34,7 +34,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                 }// end dbEntry != null if check
             }// end else check
             context.SaveChanges();
-            context.Database.CommitTransaction();
+            
         }// end SaveVolunteer2Opportunity method
     }// end EFVolunteer2OpportunityRepository class
 }// end ElderSourceVolunteerManagementCore.Models namespace
