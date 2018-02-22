@@ -4,12 +4,12 @@
 
 @foreach(var v2o in Model.Volunteer2OpportunityList)
 {
-    @if (v2o.Volunteer != null)
+    <form id="@v2o.VOLUNTEER2OPPORTUNITYID" method="post">
+    @if (v2o.Volunteer != null && v2o.Opportunity != null)
     {
-        <p>@v2o.Volunteer.FirstName</p>
+        <p>@v2o.Volunteer.FirstName @v2o.Opportunity.OpportunityName</p>
     }
-    @if (v2o.Opportunity != null)
-    {
-        <p>@v2o.Opportunity.OpportunityName</p>
-    }
+        <input type="hidden" asp-for="@v2o.VOLUNTEER2OPPORTUNITYID" />
+        <button type="submit" asp-controller="Volunteer2OpportunityHoursUpdate" asp-action="Index">Edit Hours Worked</button>
+    </form>
 }

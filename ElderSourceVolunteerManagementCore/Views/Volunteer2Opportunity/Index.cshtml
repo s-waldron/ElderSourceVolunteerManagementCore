@@ -9,8 +9,8 @@
             <tr>
                 <td>@Model.Volunteer.FirstName</td>
                 <td>@opp.OpportunityName</td>
-                <td><input asp-for="@Model.VOLUNTEERID" value="@Model.Volunteer.VOLUNTEERID" /></td>
-                <td><input asp-for="@Model.OPPORTUNITYID" value="@opp.OPPORTUNITYID" /></td>
+                <td><input type="hidden" asp-for="@Model.VOLUNTEERID" value="@Model.Volunteer.VOLUNTEERID" /></td>
+                <td><input type="hidden" asp-for="@Model.OPPORTUNITYID" value="@opp.OPPORTUNITYID" /></td>
                 <td><button type="submit">Add Volunteer to Opportunity</button></td>
             </tr>
         </table>
