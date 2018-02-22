@@ -31,7 +31,9 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         {
             if (ModelState.IsValid)
             {
+                context.Database.BeginTransaction();
                 repository.SaveVolunteer(volunteer);
+                context.Database.CommitTransaction();
                 return RedirectToAction("ListVolunteerEdit", "Volunteer");
             }// end if(ModelState.IsValid) check
             else
@@ -81,6 +83,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             };
             volunteerUpdateUserRespository.SaveVolunteerUpdateUser(volunteerUpdateUser);
             return volunteerUpdateUser;
-        }
+        }// end AddToVolUpdateUser method
     }// end VolunteerController class
 }// end ElderSourceVolunteerManagementCore.Controllers namespace

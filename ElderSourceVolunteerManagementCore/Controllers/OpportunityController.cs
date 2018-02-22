@@ -9,11 +9,13 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 {
     public class OpportunityController : Controller
     {
+        ApplicationDbContext context;
         private IOpportunityRepository repository;
 
-        public OpportunityController(IOpportunityRepository repo)
+        public OpportunityController(IOpportunityRepository repo, ApplicationDbContext ctx)
         {
             repository = repo;
+            context = ctx;
         }// end OpportunityController constructor
         
         [Authorize (Roles = "Employee,Manager,Admin")]
@@ -33,7 +35,9 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         {
             if (ModelState.IsValid)
             {
+                context.Database.BeginTransaction();
                 repository.SaveOpportunity(opportunity);
+                context.Database.CommitTransaction();
                 return RedirectToActionPermanent("ListOpportunityEdit", "Opportunity");
             }// end if(ModelState.IsValid) check
             else
