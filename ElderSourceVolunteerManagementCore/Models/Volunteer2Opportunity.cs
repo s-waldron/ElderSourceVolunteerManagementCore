@@ -7,10 +7,10 @@ namespace ElderSourceVolunteerManagementCore.Models
     {
         [Key]
         public int VOLUNTEER2OPPORTUNITYID { get; set; }
-        [ForeignKey("Volunteer")]
+        [ForeignKey("Volunteers")]
         [Required]
         public int VOLUNTEERID { get; set; }
-        [ForeignKey("Opportunity")]
+        [ForeignKey("Opportunities")]
         [Required]
         public int OPPORTUNITYID { get; set; }
         public Volunteer Volunteer { get; set; }

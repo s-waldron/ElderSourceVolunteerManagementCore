@@ -12,10 +12,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 {
     public class AuditController : Controller
     {
+        ApplicationDbContext context;
         IVolunteerUpdateUserRespository volunteerUpdateUserRespository;
 
-        public AuditController (IVolunteerUpdateUserRespository volunteerUpdateUserRespo)
+        public AuditController (IVolunteerUpdateUserRespository volunteerUpdateUserRespo, ApplicationDbContext ctx)
         {
+            context = ctx;
             volunteerUpdateUserRespository = volunteerUpdateUserRespo;
         }// end AuditController constructor
         // GET: /<controller>/

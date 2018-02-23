@@ -12,7 +12,7 @@ namespace ElderSourceVolunteerManagementCore.Models
     {
         [Key]
         public int VOLUNTEERUPDATEUSERID { get; set; }
-        [ForeignKey ("Volunteer")]
+        [ForeignKey ("Volunteers")]
         public int VOLUNTEERID { get; set; }
         public Volunteer Volunteer { get; set; }
         public string UserName { get; set; }
