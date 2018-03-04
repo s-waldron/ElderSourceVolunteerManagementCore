@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace ElderSourceVolunteerManagementCore.Models
 {
@@ -17,5 +17,6 @@ namespace ElderSourceVolunteerManagementCore.Models
         public Volunteer Volunteer { get; set; }
         public string UserName { get; set; }
         public DateTime DateUpdated { get; set; }
+        //public List<Volunteer> Volunteers { get; set; }
     }
 }

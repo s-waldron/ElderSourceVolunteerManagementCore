@@ -14,8 +14,7 @@ namespace ElderSourceVolunteerManagementCore.Models
             context = ctx;
         }// end EFVolunteer2OpportunityHoursWorkedRepository constructor
 
-        public IEnumerable<Volunteer2OpportunityHoursWorked> Volunteer2OpportunityHoursWorked
-            => context.Volunteer2OpprotunityHoursWorked;
+        public IEnumerable<Volunteer2OpportunityHoursWorked> Volunteer2OpportunityHoursWorked => context.Volunteer2OpprotunityHoursWorked;
 
         public void SaveVolunteer2OpportunityHoursWorked(Volunteer2OpportunityHoursWorked volunteer2OpportunityHoursWorked)
         {
