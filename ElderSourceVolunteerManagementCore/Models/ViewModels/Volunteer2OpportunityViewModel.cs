@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ElderSourceVolunteerManagementCore.Models.ViewModels
 {
-    public class Volunteer2OpprotunityViewModel
+    public class Volunteer2OpportunityViewModel
     {
         public Volunteer Volunteer { get; set; }
         public Opportunity Opportunity { get; set; }

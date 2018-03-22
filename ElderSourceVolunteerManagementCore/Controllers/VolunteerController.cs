@@ -72,17 +72,18 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             }// end else
         }// end EmployeeForm method
 
-        private VolunteerUpdateUser AddToVolUpdateUser (Volunteer volunteer)
+        private void AddToVolUpdateUser (Volunteer volunteer)
         {
+            Volunteer vol = repository.Volunteer.FirstOrDefault(vol1 => vol1.Email == volunteer.Email);
             VolunteerUpdateUser volunteerUpdateUser = new VolunteerUpdateUser
             {
-                VOLUNTEERID = repository.Volunteer.FirstOrDefault(vol => vol.Email == volunteer.Email).VOLUNTEERID,
-                Volunteer = repository.Volunteer.FirstOrDefault(vol1 => vol1.Email == volunteer.Email),
+                VOLUNTEERID = vol.VOLUNTEERID,
+                Volunteer = vol,
                 UserName = LoggedInUser,
                 DateUpdated = System.DateTime.Now
             };
             volunteerUpdateUserRespository.SaveVolunteerUpdateUser(volunteerUpdateUser);
-            return volunteerUpdateUser;
+            //return volunteerUpdateUser;
         }// end AddToVolUpdateUser method
     }// end VolunteerController class
 }// end ElderSourceVolunteerManagementCore.Controllers namespace

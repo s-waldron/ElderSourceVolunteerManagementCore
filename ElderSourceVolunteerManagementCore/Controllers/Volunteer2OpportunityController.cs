@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ElderSourceVolunteerManagementCore.Models;
 using ElderSourceVolunteerManagementCore.Models.ViewModels;
 using System.Collections;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,7 +32,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         public IActionResult Index(int VOLUNTEERID)
         {
             Volunteer volunteer = volunteerRepository.Volunteer.FirstOrDefault(vol => vol.VOLUNTEERID == VOLUNTEERID);
-            return View(new Volunteer2OpprotunityViewModel {
+            return View(new Volunteer2OpportunityViewModel {
                 Volunteer = volunteer,
                 OpportunityList = opportunityRepository.Opportunity,
                 VOLUNTEERID = volunteer.VOLUNTEERID
@@ -61,7 +62,8 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             Volunteer2OpportunityUpdateHoursViewModel volunteer2OpportunityUpdateHours
                 = new Volunteer2OpportunityUpdateHoursViewModel
                 {
-                    Volunteer2OpportunityList = volunteer2OpportunityReopsitory.Volunteer2Opportunity
+                    Volunteer2OpportunityList = context.Volunteer2Opportunities
+                    .Include("Volunteer").Include("Opportunity")
                     .Where(opp => opp.VOLUNTEERID == VOLUNTEERID)
                 };
             return volunteer2OpportunityUpdateHours;

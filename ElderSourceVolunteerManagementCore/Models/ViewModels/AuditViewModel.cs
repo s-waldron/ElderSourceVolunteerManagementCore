@@ -7,7 +7,7 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
 {
     public class AuditViewModel
     {
-        public IEnumerable<VolunteerUpdateUser> AuditList { get; set; }
+        public List<VolunteerUpdateUser> AuditList { get; set; }
         public Volunteer Volunteer { get; set; }
     }
 }

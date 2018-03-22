@@ -248,12 +248,12 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Opportunity", "Opportunity")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Opportunity", navigationName: "Opportunity")
                         .WithMany()
                         .HasForeignKey("OPPORTUNITYID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", "Volunteer")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", navigationName: "Volunteer")
                         .WithMany()
                         .HasForeignKey("VOLUNTEERID")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -261,7 +261,7 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2OpportunityHoursWorked", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", "Volunteer2Opportunity")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", navigationName: "Volunteer2Opportunity")
                         .WithMany()
                         .HasForeignKey("VOLUNTEER2OPPORTUNITYID")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -269,7 +269,7 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.VolunteerUpdateUser", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", "Volunteer")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", navigationName: "Volunteer")
                         .WithMany()
                         .HasForeignKey("VOLUNTEERID")
                         .OnDelete(DeleteBehavior.Cascade);
