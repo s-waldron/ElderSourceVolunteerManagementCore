@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ElderSourceVolunteerManagementCore.Models;
 using ElderSourceVolunteerManagementCore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,14 +26,16 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             v2oHWRepo = volunteer2OpportunityHoursWorkedRepository;
         }
 
-        public ViewResult Index(int VOLUNTEER2OPPORTUNITYID)
+        public ViewResult Index(Volunteer2Opportunity v2o)
         {
-            
+            ViewBag.Number = v2o.VOLUNTEER2OPPORTUNITYID.ToString();
             if (ModelState.IsValid)
             {
                 return View(new Volunteer2OpportunityUpdateHoursViewModel
                 {
-                    Volunteer2Opportunity = v2oRepo.Volunteer2Opportunity.FirstOrDefault(v2o => v2o.VOLUNTEER2OPPORTUNITYID == 115)
+                    Volunteer2Opportunity = context.Volunteer2Opportunities
+                    .Include("Volunteer").Include("Opportunity")
+                    .FirstOrDefault(v2o1 => v2o1.VOLUNTEER2OPPORTUNITYID == v2o.VOLUNTEER2OPPORTUNITYID)
                 });
             }
             else
@@ -42,13 +45,13 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         }
         
         [HttpPost]
-        public RedirectToActionResult UpdateHours(int VOLUNTEER2OPPORTUNITYID, int Hours, DateTime DateWorked)
+        public RedirectToActionResult UpdateHours(Volunteer2Opportunity Volunteer2Opportunity, int Hours, DateTime DateWorked)
         {
-            Volunteer2Opportunity volunteer2Opportunity = v2oRepo.Volunteer2Opportunity.FirstOrDefault(v2o => v2o.VOLUNTEER2OPPORTUNITYID == 115);
+            Volunteer2Opportunity volunteer2Opportunity = v2oRepo.Volunteer2Opportunity.FirstOrDefault(v2o => v2o.VOLUNTEER2OPPORTUNITYID == Volunteer2Opportunity.VOLUNTEER2OPPORTUNITYID);
             context.Database.BeginTransaction();
             Volunteer2OpportunityHoursWorked volunteer2OpportunityHoursWorked = new Volunteer2OpportunityHoursWorked
             {
-                VOLUNTEER2OPPORTUNITYID = 115,
+                VOLUNTEER2OPPORTUNITYID = volunteer2Opportunity.VOLUNTEER2OPPORTUNITYID,
                 Volunteer2Opportunity = volunteer2Opportunity,
                 HoursWorked = Hours,
                 DateWorked = DateWorked

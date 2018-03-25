@@ -1,6 +1,6 @@
 ﻿@model Volunteer2OpportunityUpdateHoursViewModel
-
-<form id="@Model.Volunteer2Opportunity.VOLUNTEER2OPPORTUNITYID" method="post" asp-action="UpdateHours">
+@ViewBag.Number
+<form id="@Model.Volunteer2Opportunity" method="post" asp-action="UpdateHours">
     <table>
         <tr>
             <th>Volunteer First Name:</th>
@@ -10,10 +10,10 @@
             <th>Date Worked:</th>
         </tr>
         <tr>
-            <td>John</td>
-            <td>Walking</td>
-            <td><input type="number" id="Hours" /></td>
-            <td><input type="date" id="DateWorked" /></td>
+            <td>@Model.Volunteer2Opportunity.Volunteer.FirstName</td>
+            <td>@Model.Volunteer2Opportunity.Opportunity.OpportunityName</td>
+            <td><input asp-for="@Model.Hours" /></td>
+            <td><input asp-for="@Model.DateWorked" /></td>
             <td><input asp-for="@Model.Volunteer2Opportunity.VOLUNTEER2OPPORTUNITYID" /></td>
         </tr>
         <tr>

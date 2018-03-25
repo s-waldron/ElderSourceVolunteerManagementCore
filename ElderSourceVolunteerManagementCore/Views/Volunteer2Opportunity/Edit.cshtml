@@ -4,11 +4,11 @@
 
 @foreach(var v2o in Model.Volunteer2OpportunityList)
 {
-    <form id="@v2o.VOLUNTEER2OPPORTUNITYID" method="post">
+    <form id="@v2o" asp-controller="Volunteer2OpportunityHoursUpdate" asp-action="Index" method="post">
     
         <p>@v2o.Volunteer.FirstName @v2o.Opportunity.OpportunityName</p>
     
-        <input type="hidden" asp-for="@v2o.VOLUNTEER2OPPORTUNITYID" />
-        <button type="submit" asp-controller="Volunteer2OpportunityHoursUpdate" asp-action="Index">Edit Hours Worked</button>
+        <input asp-for="@v2o.VOLUNTEER2OPPORTUNITYID" />
+        <button type="submit">Edit Hours Worked</button>
     </form>
 }

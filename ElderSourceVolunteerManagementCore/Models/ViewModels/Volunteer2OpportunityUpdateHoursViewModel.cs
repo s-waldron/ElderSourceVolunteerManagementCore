@@ -11,5 +11,7 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
         public IEnumerable<Volunteer2Opportunity> Volunteer2OpportunityList { get; set; }
         public IEnumerable<Opportunity> OpportunityList { get; set; }
         public Volunteer2Opportunity Volunteer2Opportunity { get; set; }
+        public int Hours { get; set; }
+        public DateTime DateWorked { get; set; }
     }// end Volunteer2OpportunityUpdateHoursViewModel
 }// end ElderSourceVolunteerManagementCore.Models.ViewModels namespace
