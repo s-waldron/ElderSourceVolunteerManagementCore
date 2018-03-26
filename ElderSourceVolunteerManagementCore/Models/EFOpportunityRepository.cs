@@ -17,6 +17,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 
         public void SaveOpportunity(Opportunity opportunity)
         {
+            
             if(opportunity.OPPORTUNITYID == 0)
             {
                 context.Opportunities.Add(opportunity);
@@ -52,6 +53,7 @@ namespace ElderSourceVolunteerManagementCore.Models
                 }// end if(dbEntry != null) check
             }// end else
             context.SaveChanges();
+            
         }// end SaveOpportunity method
     }// end EFOpportuintyRepository class
 }// end ElderSourceVolunteerManagementCore.Models namespace

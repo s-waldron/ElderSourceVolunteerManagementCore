@@ -5,9 +5,9 @@
     @foreach (var opp in Model)
     {
         <tr>
-            <td>@opp.OpportunityName</td>
-            <td>@opp.OpportunityDescription</td>
-            <td>
+            <td style="width:5%;padding-bottom:1%">@opp.OpportunityName</td>
+            <td style="width:5%;padding-bottom:1%">@opp.OpportunityDescription</td>
+            <td style="width:5%;padding-bottom:1%">
                 <form asp-action="Edit" method="post">
                     <input type="hidden" name="OpportunityID" value="@opp.OPPORTUNITYID" />
                     <button type="submit" asp-controller="Opportunity" asp-action="Edit">Edit</button>

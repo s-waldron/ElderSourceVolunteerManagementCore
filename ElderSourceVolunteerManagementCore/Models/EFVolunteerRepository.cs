@@ -16,6 +16,7 @@ namespace ElderSourceVolunteerManagementCore.Models
 
         public void SaveVolunteer(Volunteer volunteer)
         {
+            
             if(volunteer.VOLUNTEERID == 0)
             {
                 context.Volunteers.Add(volunteer);
@@ -81,9 +82,11 @@ namespace ElderSourceVolunteerManagementCore.Models
                     dbEntry.FlaggedInformation = volunteer.FlaggedInformation;
                     dbEntry.GeneralNotes = volunteer.GeneralNotes;
                     dbEntry.UpdateHours = volunteer.UpdateHours;
+                    dbEntry.Interviewed = volunteer.Interviewed;
                 }// end if(dbEntry != null) check
             }// end else
             context.SaveChanges();
+            
         }// end SaveVolunteer method
     }// end EFVolunteerRepository class
 }// end ElderSourceVolunteerManagementCore.Models namespace

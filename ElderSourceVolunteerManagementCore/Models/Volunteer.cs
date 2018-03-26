@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElderSourceVolunteerManagementCore.Models
 {
@@ -7,13 +8,25 @@ namespace ElderSourceVolunteerManagementCore.Models
     {
         [Key]
         public int VOLUNTEERID { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required]
+        [Range(10000, 99999)]
         public int ZipCode { get; set; }
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        [Range(typeof(DateTime), "01/01/1900", "01/01/2018")]
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
         public Boolean AvailableMonday { get; set; }
         public Boolean AvailableMondayMorning { get; set; }
@@ -62,5 +75,6 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string FlaggedInformation { get; set; }
         public string GeneralNotes { get; set; }
         public int UpdateHours { get; set; }
+        public Boolean Interviewed { get; set; }
     }// end Volunteer class
 }// end ElderSourceVolunteerManagementCore.Models namespace

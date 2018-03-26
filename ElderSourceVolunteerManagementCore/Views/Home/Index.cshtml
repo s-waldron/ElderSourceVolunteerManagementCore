@@ -1,5 +1,10 @@
 ﻿@model OpportunityViewModel
 
+<div class="panel panel-body panel-default">
+    
+    <h4 style="text-align:center">Opportunities Offered</h4>
+    
+</div>
 
 <div class="col-sm-3">
     <form asp-controller="Home" asp-action="Index" method="post">
@@ -9,6 +14,8 @@
         </select>
         <button type="submit">Submit</button>
     </form>
+    <img src="~/Picture1.jpg" class="pull-left" style="width:85%" />
+    <img src="~/Picture2.jpg" class="pull-left" style="width:85%" />
 </div>
 <div class="col-sm-8">
     @foreach(var opp in Model.Opportunity)

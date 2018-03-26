@@ -9,31 +9,35 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 {
     public class OpportunityController : Controller
     {
+        ApplicationDbContext context;
         private IOpportunityRepository repository;
 
-        public OpportunityController(IOpportunityRepository repo)
+        public OpportunityController(IOpportunityRepository repo, ApplicationDbContext ctx)
         {
             repository = repo;
+            context = ctx;
         }// end OpportunityController constructor
         
-        [Authorize]
+        [Authorize (Roles = "Employee,Manager,Admin")]
         public ViewResult ListOpportunityEdit() => View(repository.Opportunity);
         
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         // GET: /<controller>/
         public ViewResult Edit(int OpportunityID) => View("OpportunityForm",repository.Opportunity.FirstOrDefault(
             opp => opp.OPPORTUNITYID == OpportunityID));
 
-        [Authorize]
+        [Authorize(Roles = "Employee,Manager,Admin")]
         public ViewResult Create() => View("OpportunityForm", new Opportunity());
 
-        [Authorize]
+        [Authorize (Roles = "Employee,Manager,Admin")]
         [HttpPost]
         public IActionResult OpportunityForm(Opportunity opportunity)
         {
             if (ModelState.IsValid)
             {
+                context.Database.BeginTransaction();
                 repository.SaveOpportunity(opportunity);
+                context.Database.CommitTransaction();
                 return RedirectToActionPermanent("ListOpportunityEdit", "Opportunity");
             }// end if(ModelState.IsValid) check
             else

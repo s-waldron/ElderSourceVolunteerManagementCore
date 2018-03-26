@@ -55,6 +55,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
-        }
+        }// end Logout method
     }// end AccountController class
 }// end ElderSourceVolunteerManagementCore.Controllers namespace
