@@ -25,7 +25,7 @@ namespace ElderSourceVolunteerManagementCore.Models
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [Range(typeof(DateTime), "01/01/1900", "01/01/2030")]
+        [Range(typeof(DateTime), "01/01/1900", "01/01/2018")]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
         public Boolean AvailableMonday { get; set; }
