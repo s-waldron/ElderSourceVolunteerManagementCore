@@ -1,0 +1,18 @@
+﻿@model Volunteer2OpportunityViewModel
+
+
+
+@foreach (var opp in Model.OpportunityList)
+{
+    <form asp-action="Volunteer2OpportunityEdit" method="post">
+        <table>
+            <tr>
+                <td>@Model.Volunteer.FirstName</td>
+                <td>@opp.OpportunityName</td>
+                <td><input type="hidden" asp-for="@Model.VOLUNTEERID" value="@Model.Volunteer.VOLUNTEERID" /></td>
+                <td><input type="hidden" asp-for="@Model.OPPORTUNITYID" value="@opp.OPPORTUNITYID" /></td>
+                <td><button type="submit">Add Volunteer to Opportunity</button></td>
+            </tr>
+        </table>
+    </form>
+}

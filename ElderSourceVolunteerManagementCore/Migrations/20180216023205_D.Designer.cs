@@ -8,9 +8,10 @@ using ElderSourceVolunteerManagementCore.Models;
 namespace ElderSourceVolunteerManagementCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180216023205_D")]
+    partial class D
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.4")
@@ -248,12 +249,12 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Opportunity", navigationName: "Opportunity")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Opportunity", "Opportunity")
                         .WithMany()
                         .HasForeignKey("OPPORTUNITYID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", navigationName: "Volunteer")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", "Volunteer")
                         .WithMany()
                         .HasForeignKey("VOLUNTEERID")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -261,7 +262,7 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2OpportunityHoursWorked", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", navigationName: "Volunteer2Opportunity")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", "Volunteer2Opportunity")
                         .WithMany()
                         .HasForeignKey("VOLUNTEER2OPPORTUNITYID")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -269,7 +270,7 @@ namespace ElderSourceVolunteerManagementCore.Migrations
 
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.VolunteerUpdateUser", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", navigationName: "Volunteer")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", "Volunteer")
                         .WithMany()
                         .HasForeignKey("VOLUNTEERID")
                         .OnDelete(DeleteBehavior.Cascade);

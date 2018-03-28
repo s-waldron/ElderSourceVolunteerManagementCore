@@ -8,31 +8,52 @@
         </tr>
         <tr>
             <td style="width:20%"><label asp-for="OpportunityName">Opportuntiy Name:</label></td>
-            <td><input asp-for="OpportunityName" /></td>
+            <td>
+                <input asp-for="OpportunityName" />
+                <span asp-validation-for="OpportunityName" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityDate">Opportunity Date:</label></td>
-            <td><input asp-for="OpportunityDate" /></td>
+            <td>
+                <input asp-for="OpportunityDate" />
+                <span asp-validation-for="OpportunityDate" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityStreet">Opportunity Street Address:</label></td>
-            <td><input asp-for="OpportunityStreet" /></td>
+            <td>
+                <input asp-for="OpportunityStreet" />
+                <span asp-validation-for="OpportunityStreet" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityCity">Opportunity City:</label></td>
-            <td><input asp-for="OpportunityCity" /></td>
+            <td>
+                <input asp-for="OpportunityCity" />
+                <span asp-validation-for="OpportunityCity" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityCounty">Opportunity County:</label></td>
-            <td><input asp-for="OpportunityCounty" /></td>
+            <td>
+                <input asp-for="OpportunityCounty" />
+                <span asp-validation-for="OpportunityCounty" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityState">Opportunity State:</label></td>
-            <td><input asp-for="OpportunityState" /></td>
+            <td>
+                <input asp-for="OpportunityState" />
+                <span asp-validation-for="OpportunityState" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityZipCode">Opportunity Zip Code:</label></td>
-            <td><input asp-for="OpportunityZipCode" /></td>
+            <td>
+                <input asp-for="OpportunityZipCode" />
+                <span asp-validation-for="OpportunityZipCode" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="OpportunityElderSource">Opportunity ElderSource?</label></td>
@@ -70,7 +91,10 @@
         </tr>
         <tr>
             <td><label asp-for="OpportunityDescription">Opportunity Description:</label></td>
-            <td><textarea asp-for="OpportunityDescription"></textarea></td>
+            <td>
+                <textarea asp-for="OpportunityDescription"></textarea>
+                <span asp-validation-for="OpportunityDescription" class="text-danger"></span>
+            </td>
         </tr>
         <tr>
             <td colspan="2" class="table"><button type="submit">Submit</button></td>

@@ -1,14 +1,19 @@
 ﻿@model IEnumerable<Volunteer>
 
-<h4>Volunteer Management</h4>
+<h4 class="text-center">Volunteer Management</h4>
+
+<div class="col-md-5 table-bordered">
+    <h4 class="text-center">Volunteers Not Interviewed</h4>
 <table>
     @foreach (var vol in Model)
     {
-        <tr>
-            <td>@vol.FirstName</td>
-            <td>@vol.LastName</td>
-            <td>@vol.Email</td>
-            <td>
+        if (vol.Interviewed == false)
+        {
+        <tr style="margin-bottom:2%">
+            <td style="width:5%;padding-bottom:1%">@vol.FirstName</td>
+            <td style="width:5%;padding-bottom:1%">@vol.LastName</td>
+            <td style="width:5%;padding-bottom:1%">@vol.Email</td>
+            <td  style="width:5%;padding-bottom:1%">
                 <form asp-action="Edit" method="post">
                     <input type="hidden" name="VolunteerID" value="@vol.VOLUNTEERID" />
                     <button type="submit" asp-controller="Volunteer" asp-action="Edit">Edit</button>
@@ -16,10 +21,36 @@
             </td>
 
         </tr>
+        }
     }
     <tr>
         <td colspan="2">
         <a class="btn btn-primary" asp-controller="Volunteer" asp-action="Create">Create New Volunteer</a>
         </td>
     </tr>
+    
 </table>
+</div>
+<div class="col-md-5 table-bordered">
+    <h4 class="text-center">Volunteers Interviewed</h4>
+    <table>
+        @foreach (var vol in Model)
+        {
+            if (vol.Interviewed == true)
+            {
+                <tr >
+                    <td style="width:5%;padding-bottom:1%">@vol.FirstName</td>
+                    <td style="width:5%;padding-bottom:1%">@vol.LastName</td>
+                    <td style="width:5%;padding-bottom:1%">@vol.Email</td>
+                    <td style="width:5%;padding-bottom:1%">
+                        <form asp-action="Edit" method="post">
+                            <input type="hidden" name="VolunteerID" value="@vol.VOLUNTEERID" />
+                            <button type="submit" asp-controller="Volunteer" asp-action="Edit">Edit</button>
+                        </form>
+                    </td>
+
+                </tr>
+            }
+        }
+        </table>
+</div>

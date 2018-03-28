@@ -40,6 +40,8 @@ namespace ElderSourceVolunteerManagementCore
             services.AddTransient<IVolunteerRepository, EFVolunteerRepository>();
             services.AddTransient<IOpportunityRepository, EFOpportunityRepository>();
             services.AddTransient<IVolunteer2OpportunityRepository, EFVolunteer2OpportunityRepository>();
+            services.AddTransient<IVolunteer2OpportunityHoursWorkedRepository, EFVolunteer2OpportunityHoursWorkedRepository>();
+            services.AddTransient<IVolunteerUpdateUserRespository, EFVolunteerUpdateUserRepository>();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
@@ -53,7 +55,7 @@ namespace ElderSourceVolunteerManagementCore
             app.UseStaticFiles();
             app.UseIdentity();
             app.UseMvcWithDefaultRoute();
-            SeedData.EnsurePopulated(app);
+            
         }// end Configure method
     }// end Startup class
 }// end ElderSourceVolunteerManagementCore namespace

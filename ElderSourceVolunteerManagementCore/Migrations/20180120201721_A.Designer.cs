@@ -8,9 +8,10 @@ using ElderSourceVolunteerManagementCore.Models;
 namespace ElderSourceVolunteerManagementCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180120201721_A")]
+    partial class A
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.4")
@@ -197,6 +198,8 @@ namespace ElderSourceVolunteerManagementCore.Migrations
                     b.Property<int>("VOLUNTEER2OPPORTUNITYID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("HoursWorked");
+
                     b.Property<int>("OPPORTUNITYID");
 
                     b.Property<int>("VOLUNTEERID");
@@ -210,66 +213,14 @@ namespace ElderSourceVolunteerManagementCore.Migrations
                     b.ToTable("Volunteer2Opportunities");
                 });
 
-            modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2OpportunityHoursWorked", b =>
-                {
-                    b.Property<int>("VOLUNTEER2OPPORTUNITYHOURSWORKEDID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateWorked");
-
-                    b.Property<int>("HoursWorked");
-
-                    b.Property<int>("VOLUNTEER2OPPORTUNITYID");
-
-                    b.HasKey("VOLUNTEER2OPPORTUNITYHOURSWORKEDID");
-
-                    b.HasIndex("VOLUNTEER2OPPORTUNITYID");
-
-                    b.ToTable("Volunteer2OpprotunityHoursWorked");
-                });
-
-            modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.VolunteerUpdateUser", b =>
-                {
-                    b.Property<int>("VOLUNTEERUPDATEUSERID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateUpdated");
-
-                    b.Property<string>("UserName");
-
-                    b.Property<int>("VOLUNTEERID");
-
-                    b.HasKey("VOLUNTEERUPDATEUSERID");
-
-                    b.HasIndex("VOLUNTEERID");
-
-                    b.ToTable("VolunteerUpdateUser");
-                });
-
             modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", b =>
                 {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Opportunity", navigationName: "Opportunity")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Opportunity", "Opportunity")
                         .WithMany()
                         .HasForeignKey("OPPORTUNITYID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", navigationName: "Volunteer")
-                        .WithMany()
-                        .HasForeignKey("VOLUNTEERID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.Volunteer2OpportunityHoursWorked", b =>
-                {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer2Opportunity", navigationName: "Volunteer2Opportunity")
-                        .WithMany()
-                        .HasForeignKey("VOLUNTEER2OPPORTUNITYID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ElderSourceVolunteerManagementCore.Models.VolunteerUpdateUser", b =>
-                {
-                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", navigationName: "Volunteer")
+                    b.HasOne("ElderSourceVolunteerManagementCore.Models.Volunteer", "Volunteer")
                         .WithMany()
                         .HasForeignKey("VOLUNTEERID")
                         .OnDelete(DeleteBehavior.Cascade);
