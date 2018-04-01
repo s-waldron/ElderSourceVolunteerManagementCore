@@ -104,6 +104,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         {
             int idNumber = int.Parse(id);
             return View(repository.Opportunity.Where(o => o.OPPORTUNITYID == idNumber));
-        }
+        }// end DisplayInformation method
     }// end HomeController class
 }// end ElderSourceVolunteerManagementCore.Controller namespace

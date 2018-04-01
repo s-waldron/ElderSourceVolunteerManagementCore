@@ -24,7 +24,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             context = ctx;
             v2oRepo = volunteer2OpportunityRepository;
             v2oHWRepo = volunteer2OpportunityHoursWorkedRepository;
-        }
+        }// end Volunteer2OpportunityHoursUpdateController constructor
 
         public ViewResult Index(Volunteer2Opportunity v2o)
         {
@@ -37,12 +37,12 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                     .Include("Volunteer").Include("Opportunity")
                     .FirstOrDefault(v2o1 => v2o1.VOLUNTEER2OPPORTUNITYID == v2o.VOLUNTEER2OPPORTUNITYID)
                 });
-            }
+            }// end if (ModelState.IsValid) check
             else
             {
                 return View("Home/Index");
-            }
-        }
+            }// end else
+        }// end Index method
         
         [HttpPost]
         public RedirectToActionResult UpdateHours(Volunteer2Opportunity Volunteer2Opportunity, int Hours, DateTime DateWorked)
@@ -59,6 +59,6 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             v2oHWRepo.SaveVolunteer2OpportunityHoursWorked(volunteer2OpportunityHoursWorked);
             context.Database.CommitTransaction();
             return RedirectToAction("ListVolunteerEdit", "Volunteer");
-        }
-    }
-}
+        }// end UpdateHours HttpPost method
+    }// end Volunteer2OpportunityHoursUpdateController class
+}// end ElderSourceVolunteerManagementCore.Controller namespace

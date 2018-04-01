@@ -10,5 +10,5 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-    }
-}
+    }// end AppUsers : IdentityUser class
+}// end ElderSourceVolunteerManagementCore.Models namespace

@@ -13,5 +13,5 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
         public int VOLUNTEERID { get; set; }
         public int OPPORTUNITYID { get; set; }
         
-    }
-}
+    }// end Volunteer2OpportunityViewModel class
+}// end ElderSourceVolunteerManagementCore.Models.ViewModels namespace

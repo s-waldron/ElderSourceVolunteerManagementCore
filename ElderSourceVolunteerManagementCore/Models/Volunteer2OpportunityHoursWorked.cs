@@ -18,5 +18,5 @@ namespace ElderSourceVolunteerManagementCore.Models
         public int HoursWorked { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateWorked { get; set; }
-    }
-}
+    }// end Volunteer2OpportunityHoursWorked class
+}// end ElderSourceVolunteerManagementCore.Models namespace

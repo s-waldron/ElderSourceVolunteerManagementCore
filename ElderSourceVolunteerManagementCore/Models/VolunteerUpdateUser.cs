@@ -18,5 +18,5 @@ namespace ElderSourceVolunteerManagementCore.Models
         public string UserName { get; set; }
         public DateTime DateUpdated { get; set; }
         //public List<Volunteer> Volunteers { get; set; }
-    }
-}
+    }// end VOlunteerUpdateUser class
+}// end ElderSourceVolunteerManagementCore.Models namespace

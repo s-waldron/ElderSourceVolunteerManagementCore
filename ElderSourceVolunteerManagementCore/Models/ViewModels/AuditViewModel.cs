@@ -9,5 +9,5 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
     {
         public List<VolunteerUpdateUser> AuditList { get; set; }
         public Volunteer Volunteer { get; set; }
-    }
-}
+    }// end AuditViewModel class
+}// end ElderSourceVolunteerManagementCore.Models.ViewModels namespace
