@@ -1,0 +1,14 @@
+﻿@model Volunteer2OpportunityUpdateHoursViewModel
+
+<a class="btn" asp-controller="Volunteer" asp-action="ListVolunteerEdit">Add More Volunteers To Opportunities</a>
+
+@foreach (var v2o in Model.Volunteer2OpportunityList)
+{
+    <form id="@v2o" asp-controller="Volunteer2OpportunityHoursUpdate" asp-action="Index" method="post">
+
+        <p>@v2o.Volunteer.FirstName @v2o.Opportunity.OpportunityName</p>
+
+        <input asp-for="@v2o.VOLUNTEER2OPPORTUNITYID" />
+        <button type="submit">Edit Hours Worked</button>
+    </form>
+}

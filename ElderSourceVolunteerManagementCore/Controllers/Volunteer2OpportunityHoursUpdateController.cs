@@ -45,7 +45,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         }// end Index method
         
         [HttpPost]
-        public RedirectToActionResult UpdateHours(Volunteer2Opportunity Volunteer2Opportunity, int Hours, DateTime DateWorked)
+        public ViewResult UpdateHours(Volunteer2Opportunity Volunteer2Opportunity, int Hours, DateTime DateWorked)
         {
             Volunteer2Opportunity volunteer2Opportunity = v2oRepo.Volunteer2Opportunity.FirstOrDefault(v2o => v2o.VOLUNTEER2OPPORTUNITYID == Volunteer2Opportunity.VOLUNTEER2OPPORTUNITYID);
             context.Database.BeginTransaction();
@@ -58,7 +58,11 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             };
             v2oHWRepo.SaveVolunteer2OpportunityHoursWorked(volunteer2OpportunityHoursWorked);
             context.Database.CommitTransaction();
-            return RedirectToAction("ListVolunteerEdit", "Volunteer");
+            return View("Volunteer2OpportunityUpdateHoursViewModelList", new Volunteer2OpportunityUpdateHoursViewModel {
+                Volunteer2OpportunityList = context.Volunteer2Opportunities
+                .Include("Volunteer").Include("Opportunity")
+                .Where(v2o => v2o.VOLUNTEERID == volunteer2Opportunity.VOLUNTEERID)
+            });
         }// end UpdateHours HttpPost method
     }// end Volunteer2OpportunityHoursUpdateController class
 }// end ElderSourceVolunteerManagementCore.Controller namespace
