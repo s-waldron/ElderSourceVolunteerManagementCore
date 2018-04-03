@@ -1,0 +1,11 @@
+﻿@model ReportViewModel
+
+<div>
+    <form asp-controller="Report" asp-action="Index">
+        <label>Reports: </label>
+        <select asp-for="Report" asp-items="@Model.Reports">
+            <option>Select One...</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</div>

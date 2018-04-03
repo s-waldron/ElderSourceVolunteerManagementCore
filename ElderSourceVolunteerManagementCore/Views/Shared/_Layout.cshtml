@@ -30,6 +30,7 @@
                         @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {
                             <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                            <li><a asp-area="" asp-controller="Report" asp-action="Index">Reports</a></li>
                         }
                         @if (User.IsInRole("Admin"))
                         {
