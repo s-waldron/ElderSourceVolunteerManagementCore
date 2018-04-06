@@ -8,6 +8,8 @@ namespace ElderSourceVolunteerManagementCore.Models.ViewModels
 {
     public class ReportViewModel
     {
+        public DateTime AuditUpdateDate { get; set; }
+        public DateTime V2OUpdateDate { get; set; }
         public string Report { get; set; }
         public List<SelectListItem> Reports { get; } = new List<SelectListItem>
         {
