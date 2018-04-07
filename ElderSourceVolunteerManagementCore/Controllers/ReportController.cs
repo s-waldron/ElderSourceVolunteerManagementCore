@@ -21,15 +21,18 @@ namespace ElderSourceVolunteerManagementCore.Controllers
         IVolunteerUpdateUserRespository volunteerUpdateUserRespository;
         ApplicationDbContext context;
         IVolunteer2OpportunityHoursWorkedRepository Volunteer2OpportunityHoursWorkedRepository;
+        IVolunteer2OpportunityRepository volunteer2OpportunityRepository;
         
         public ReportController(IHostingEnvironment hostingEnvironment,
             IVolunteerUpdateUserRespository volUpUser, ApplicationDbContext ctx,
-            IVolunteer2OpportunityHoursWorkedRepository v2ohw)
+            IVolunteer2OpportunityHoursWorkedRepository v2ohw,
+            IVolunteer2OpportunityRepository v2oRepo)
         {
             _hostingEnvironment = hostingEnvironment;
             volunteerUpdateUserRespository = volUpUser;
             context = ctx;
             Volunteer2OpportunityHoursWorkedRepository = v2ohw;
+            volunteer2OpportunityRepository = v2oRepo;
         }
 
         public void AuditExport()
@@ -121,8 +124,10 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 
         public void V2OReport()
         {
-            IEnumerable<Volunteer2Opportunity> v2oHoursWorked = context.Volunteer2Opportunities
-                .Include("Volunteer2OpportunityHoursWorked").Include("Volunteer").Include("Opportunity");
+            IEnumerable<Volunteer2Opportunity> v2o = context.Volunteer2Opportunities
+                .Include("Volunteer").Include("Opportunity");
+            IEnumerable<Volunteer2OpportunityHoursWorked> v2oHoursWorked = context
+                .Volunteer2OpprotunityHoursWorked;
             string sWebRootFolder = _hostingEnvironment.WebRootPath;
             string sFileName = @"volunteer2opportunityreport.xlsx";
             FileInfo file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
@@ -134,21 +139,28 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             int row = 2;
             using (ExcelPackage package = new ExcelPackage(file))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Audit Report");
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Volunteer2Opportunity Report");
                 worksheet.Cells[1, 1].Value = "Volunteer First Name";
                 worksheet.Cells[1, 2].Value = "Volunteer Last Name";
                 worksheet.Cells[1, 3].Value = "Opportunity Name";
                 worksheet.Cells[1, 4].Value = "Date and Time worked";
                 worksheet.Cells[1, 5].Value = "Hours Worked";
 
-                foreach (var v2o in v2oHoursWorked)
+                foreach (var v2oHW in v2oHoursWorked)
                 {
-                    worksheet.Cells[row, 1].Value = v2o.Volunteer.FirstName;
-                    worksheet.Cells[row, 2].Value = v2o.Volunteer.LastName;
-                    worksheet.Cells[row, 3].Value = v2o.Opportunity.OpportunityName;
-                    worksheet.Cells[row, 4].Value = v2o.Volunteer2OpportunityHoursWorked.DateWorked.ToString();
-                    worksheet.Cells[row, 5].Value = v2o.Volunteer2OpportunityHoursWorked.HoursWorked.ToString();
-                    row++;
+                    foreach (var v2o1 in v2o)
+                    {
+                        if(v2o1.VOLUNTEER2OPPORTUNITYID == v2oHW.VOLUNTEER2OPPORTUNITYID)
+                        {
+                            worksheet.Cells[row, 1].Value = v2o1.Volunteer.FirstName;
+                            worksheet.Cells[row, 2].Value = v2o1.Volunteer.LastName;
+                            worksheet.Cells[row, 3].Value = v2o1.Opportunity.OpportunityName;
+                            worksheet.Cells[row, 4].Value = v2oHW.DateWorked.ToString();
+                            worksheet.Cells[row, 5].Value = v2oHW.HoursWorked.ToString();
+                            row++;
+                            break;
+                        }
+                    }
                 }
                 package.Save();
             }

@@ -99,6 +99,10 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             }// end switch(Interest) statment
         }// end Index method
 
+        public ViewResult ThankYou()
+        {
+            return View();
+        }
 
         public IActionResult DisplayInformation(string id)
         {

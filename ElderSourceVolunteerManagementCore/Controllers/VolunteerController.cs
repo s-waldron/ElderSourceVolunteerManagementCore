@@ -34,7 +34,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                 context.Database.BeginTransaction();
                 repository.SaveVolunteer(volunteer);
                 context.Database.CommitTransaction();
-                return RedirectToAction("ListVolunteerEdit", "Volunteer");
+                return RedirectToAction("ThankYou", "Home");
             }// end if(ModelState.IsValid) check
             else
             {
