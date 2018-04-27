@@ -1,0 +1,15 @@
+﻿@model ReportViewModel
+
+<div>
+    <form asp-controller="Report" asp-action="Index">
+        <label>Reports: </label>
+        <select asp-for="Report" asp-items="@Model.Reports">
+            <option>Select One...</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<p>The last time the Audit file was writen to was: @Model.AuditUpdateDate (UTC)</p>
+<a class="btn btn-primary" href="auditreport.xlsx">Audit Download</a>
+<p>The last time the Volunteer2Opportunity file was writen to was: @Model.V2OUpdateDate (UTC)</p>
+<a class="btn btn-primary" href="volunteer2opportunityreport.xlsx">Vol2Opp Download</a>
