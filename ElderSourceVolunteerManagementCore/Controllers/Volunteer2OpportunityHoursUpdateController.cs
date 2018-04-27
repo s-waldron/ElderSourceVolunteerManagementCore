@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ElderSourceVolunteerManagementCore.Models;
 using ElderSourceVolunteerManagementCore.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ElderSourceVolunteerManagementCore.Controllers
 {
+    [Authorize(Roles = "Employee,Manager,Admin")]
     public class Volunteer2OpportunityHoursUpdateController : Controller
     {
         ApplicationDbContext context;

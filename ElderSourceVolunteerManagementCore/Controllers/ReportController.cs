@@ -10,11 +10,13 @@ using Microsoft.Extensions.FileProviders;
 using OfficeOpenXml;
 using ElderSourceVolunteerManagementCore.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ElderSourceVolunteerManagementCore.Controllers
 {
+    [Authorize(Roles = "Manager,Admin")]
     public class ReportController : Controller
     {
         private readonly IHostingEnvironment _hostingEnvironment;
