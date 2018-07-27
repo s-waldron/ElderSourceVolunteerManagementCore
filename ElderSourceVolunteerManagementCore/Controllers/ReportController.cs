@@ -34,9 +34,14 @@ namespace ElderSourceVolunteerManagementCore.Controllers
             volunteerUpdateUserRespository = volUpUser;
             context = ctx;
             Volunteer2OpportunityHoursWorkedRepository = v2ohw;
+<<<<<<< HEAD
 
         }// end ReportController method
 
+=======
+            volunteer2OpportunityRepository = v2oRepo;
+        }
+>>>>>>> 4f8a4a49943c213ca289663e2a6e1c2880b068b6
 
         public void AuditExport()
         {
@@ -151,6 +156,7 @@ namespace ElderSourceVolunteerManagementCore.Controllers
 
                 foreach (var v2oHW in v2oHoursWorked)
                 {
+<<<<<<< HEAD
 
                     worksheet.Cells[row, 1].Value = v2o.Volunteer.FirstName;
                     worksheet.Cells[row, 2].Value = v2o.Volunteer.LastName;
@@ -160,6 +166,8 @@ namespace ElderSourceVolunteerManagementCore.Controllers
                     row++;
                 }// end v2o foreach loop
 
+=======
+>>>>>>> 4f8a4a49943c213ca289663e2a6e1c2880b068b6
                     foreach (var v2o1 in v2o)
                     {
                         if(v2o1.VOLUNTEER2OPPORTUNITYID == v2oHW.VOLUNTEER2OPPORTUNITYID)

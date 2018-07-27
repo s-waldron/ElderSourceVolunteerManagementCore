@@ -15,9 +15,9 @@ namespace ElderSourceVolunteerManagementCore.Models
         [ForeignKey ("Volunteer2Opportunity")]
         public int VOLUNTEER2OPPORTUNITYID { get; set; }
         public Volunteer2Opportunity Volunteer2Opportunity { get; set; }
-        public Volunteer Volunteer { get; set; }
-        public Opportunity Opportunity { get; set; }
+        [Required]
         public int HoursWorked { get; set; }
+        [Required]
         [DataType(DataType.Date)]
         public DateTime DateWorked { get; set; }
     }// end Volunteer2OpportunityHoursWorked class
